@@ -1,2 +1,5 @@
 
-Hola, esto es un repo de la clase de ingenieria de software de la USB
+Ingenieria
+==========
+
+Tareas del Lab de Ingenieria de Soft.
