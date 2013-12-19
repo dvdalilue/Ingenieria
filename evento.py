@@ -1,2 +1,0 @@
-#creando clase evento
-#modificado
