@@ -1,4 +1,3 @@
-import 
 
 class asistente(object):
 
