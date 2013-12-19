@@ -11,14 +11,6 @@
 #*****************************************************************************
 
 class Persona(object):
-    
-    CI=0
-    Nombre= ' '
-    Apellido= ' '
-    Institucion_Afiliada= ' '
-    Email= ' '
-    Pais= ' '
-    Url = ' '
 
     def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Url = None):
         """Constructor"""
@@ -29,22 +21,15 @@ class Persona(object):
         self.Email = Email
         self.Pais = Pais
         self.Url = Url
+
+    def __str__(self):
         
-    def to_String(self):
-        """ Metodo : to_String
-       Parametros : self
-       Descripcion; imprime en un string los datos de una Persona"""
-        datos_persona = ' '
-        datos_persona += "\nCI: " + str(self.CI)
-        datos_persona += "\nNombre: " + str(self.Nombre)
-        datos_persona += "\nApellido: " + str(self.Apellido)
-        datos_persona += "\nInstitucion_Afiliada: " + str(self.Institucion_Afiliada)
-        datos_persona += "\nEmail: " + str(self.Email)
-        datos_persona += "\nPais: " +  str(self.Pais)
-        if  self.Url != " ":
-            datos_persona += "\nUrl:" + str(self.Url)
-        
-        return datos_persona    
+        keys = self.__dict__.keys()
+        datos = ""
+        for n in keys:
+            datos += "\n%s: %s"%(n,self.__dict__[n])
+        datos += "\n"
+        return datos
 
 
 #*****************************************************************************
@@ -69,7 +54,7 @@ class Inscrito(Persona):
     Url= ' '
     Telefono= ' '
     
-    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Asistente, Ponente, Autor, Cod_Postal, Url, Telefono):
+    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Asistente, Ponente, Autor, Cod_Postal, Telefono, Url= None):
         """Constructor"""
         Persona.__init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais)
         self.Asistente = Asistente
@@ -78,19 +63,6 @@ class Inscrito(Persona):
         self.Cod_Postal = Cod_Postal
         self.Url = Url
         self.Telefono = Telefono
-
-    def to_String(self):
-        """ Metodo : to_String
-       Parametros : self
-       Descripcion; imprime en un string los datos de una Persona Inscrita"""
-        datos_inscrito = Persona.to_String(self)
-        datos_inscrito += "\nAsistente: " , self.Asistente
-        datos_inscrito += "\nPonente: " , self.Ponente
-        datos_inscrito += "\nAutor: " , self.Autor
-        datos_inscrito += "\nCod_Postal: " , self.Cod_Postal
-        datos_inscrito += "\nTelefono: " , self.Telefono
-          
-        return datos_inscrito    
         
 #*****************************************************************************
 # Clase : Miembro_Cp
@@ -126,7 +98,7 @@ class Miembro_Cp(Persona):
         """Metodo : to_String
       Parametros : self
       Descripcion; imprime en un string los datos de un Miembro_Cp"""
-        datos_mcp = Persona.to_String(self)
+        #datos_mcp = Persona.to_String(self)
         datos_mcp += "\nCargo: " + str(self.Cargo)
         datos_mcp += "\nExperiencia: " + str(self.Experiencia)
         
@@ -135,9 +107,9 @@ class Miembro_Cp(Persona):
 
 if __name__=="__main__":
     
-    m1 = Miembro_Cp(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela")
-    m2 = Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ", ["op", "bd"])
-    p = m1.to_String()
+    #m1 = Miembro_Cp(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela")
+    #m2 = Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ", ["op", "bd"])
+    p = Inscrito(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela",False, True, False, 25, 555, "google.com")
     print p
-    print m2.to_String()
+    #print m2.to_String()
     
