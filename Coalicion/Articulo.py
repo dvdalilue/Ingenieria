@@ -9,7 +9,7 @@
 # Seccion : 1
 #
 #*****************************************************************************
-from Persona import *
+from Persona import Persona
 
 class Articulo:
 
