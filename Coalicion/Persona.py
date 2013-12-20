@@ -28,7 +28,15 @@ class Persona(object):
         self.institucion_afiliada = institucion_afiliada
         self.email = email
         self.pais = pais
+    
+    
+    @staticmethod
+    def is_equal(persona1,persona2):
         
+        if persona1.ci == persona2.ci:
+            return True
+        return False
+    
     def __str__(self):
         
         keys = self.__dict__.keys()
@@ -61,14 +69,14 @@ class Persona(object):
 class Asistente(Persona):
     
     def __init__(self, ci, nombre, apellido, institucion_afiliada, email, 
-                 pais,cod_postal, telefono, ponente, autor, url= None):
+                 pais,cod_postal, telefono, ponente = False, autor = False, url= None):
         
         """Constructor"""
         super(Asistente, self).__init__(ci, nombre, apellido, 
               institucion_afiliada, email, pais)
         
-        self.ponente = False
-        self.autor = False
+        self.ponente = ponente
+        self.autor = autor
         self.cod_postal = cod_postal
         self.url = url
         self.telefono = telefono
@@ -125,13 +133,13 @@ class Invitado(Persona):
 class MiembroCp(Persona):
     
     def __init__(self, ci, nombre, apellido, institucion_afiliada, email, 
-                 pais, experticia = None, url = None):
+                 pais, experticia = None):
         
         """Constructor"""
         super(MiembroCp, self).__init__(ci, nombre, apellido, 
               institucion_afiliada, email, pais)
         
-        self.presidente = False
+        self.es_presidente = False
         self.experticia = experticia
     
     def set_presidente(self):
@@ -139,14 +147,8 @@ class MiembroCp(Persona):
         Parametros : self
         boolean val
         Descripcion: Cambia el cargo de una miebro """
-        self.presidente = True
 
-    @staticmethod
-    def is_equal(miembro1,miembro2):
-        
-        if miembro1.ci == miembro2.ci:
-            return True
-        return False
+        self.es_presidente = True
     
 #if __name__=="__main__":
     
