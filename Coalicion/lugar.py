@@ -1,16 +1,16 @@
 #!/usr/bin/python
 
 class Lugar(object):
-    def __init__(self, Nombre, Ubicacion, Capacidad_maxima):
+    def __init__(self, nombre, ubicacion, capacidad_maxima):
        
-       self.Nombre = Nombre
-       self.Ubicacion = Ubicacion
-       self.Capacidad_maxima = Capacidad_maxima
+       self.nombre = nombre
+       self.ubicacion = ubicacion
+       self.capacidad_maxima = capacidad_maxima
        
-    def Equals(self, Lugar):
-        if self.Nombre == Lugar.Nombre:
-	   print "Ambos Lugares tIenen el mismo Nombre"
-	   if self.Ubicacion == Lugar.Ubicacion:
+    def equals(self, Lugar):
+        if self.nombre == Lugar.nombre:
+	   print "Ambos Lugares tienen el mismo Nombre"
+	   if self.ubicacion == Lugar.ubicacion:
 	    return True
 	else:
 	    return False
@@ -23,7 +23,7 @@ class Lugar(object):
         datos += "\n"
         return datos
 
- if __name__=="__main__":
+if __name__=='__main__':
     
     l = Lugar("MYS", "Mys-019", 300)
     print l
