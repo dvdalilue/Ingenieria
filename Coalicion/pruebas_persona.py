@@ -1,5 +1,5 @@
 #*****************************************************************************
-# Clase : Probar_Clases.py
+# Clase : pruebas_persona.py
 #
 # Descripcion : Clase que implementa las pruebas unitarias
 #

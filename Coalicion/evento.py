@@ -49,7 +49,7 @@ class Evento(object):
         return datos
 
 #*****************************************************************************
-# Clase : Sesion_de_Ponencias
+# Clase : SesionDePonencias
 #
 # Descripcion : Clase que hereda de Evento e implementa las sesiones de 
 #                ponencias que se daran en  el CLEI
@@ -66,12 +66,12 @@ class Evento(object):
 #
 #***************************************************************************** 
 
-class Sesion_de_ponencias(Evento):
+class SesionDePonencias(Evento):
 
     def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin,lugar,
                   ponencia1, ponencia2, ponencia3 = None, ponencia4 = None):
 
-        super(Sesion_de_ponencias, self).__init__(nombre, fecha_ini, fecha_fin,
+        super(SesionDePonencias, self).__init__(nombre, fecha_ini, fecha_fin,
                                                    hora_ini, hora_fin, lugar)
         self.ponencias = []
         
@@ -107,15 +107,15 @@ class Sesion_de_ponencias(Evento):
 #
 #***************************************************************************** 
 
-class Charla_invitada(Evento):
+class CharlaInvitada(Evento):
 
     def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar,
                  moderador, charlista, resumen, palabras_claves, topico):
 
-        if not(topico in moderador.Experticia):
-            raise Exception
+        #if not(topico in moderador.Experticia):
+        #    raise Exception
 
-        super(Charla_invitada, self).__init__(nombre, fecha_ini, fecha_fin, 
+        super(CharlaInvitada, self).__init__(nombre, fecha_ini, fecha_fin, 
                                               hora_ini, hora_fin, lugar)
 
         self.moderador = moderador
