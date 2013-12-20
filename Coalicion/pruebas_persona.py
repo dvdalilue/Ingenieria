@@ -33,5 +33,7 @@ class Test_Persona(unittest.TestCase):
 	self.assertEqual(self.persona.institucion_afiliada, "UCAB")
 	self.assertEqual(self.persona.email, "cg@ucab.ve")
 	self.assertEqual(self.persona.pais, "Venezuela")
-	self.assertEqual(self.persona.url, "http://hola.com")
-	
+
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.test_persona']
+    unittest.main()

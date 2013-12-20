@@ -138,8 +138,15 @@ class MiembroCp(Persona):
         """  Metodo : Set_Presidente
         Parametros : self
         boolean val
-        Descripcion: Cambia el cargo de un miembro """
-        self.presidente = True
+        Descripcion: Cambia el cargo de una miebro """
+        self.Presidente = True
+
+    @staticmethod
+    def is_equal(miembro1,miembro2):
+        
+        if miembro1.ci == miembro2.ci:
+            return True
+        return False
     
 if __name__=="__main__":
     
@@ -150,5 +157,3 @@ if __name__=="__main__":
     #cv = Curriculum("trabajo", "bases de datos", "operador ldc", "recreador")
     #p = Invitado(30, "Marcos", "Perez", "UCV", "mp@ucv.ve", "Venezuela", cv)
     #print p
-    
-  
