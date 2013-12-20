@@ -5,7 +5,7 @@
 #
 # Autores : 
 #           David Lilue       #  carnet: 09-10444
-#           Veronica Liniayo  #  carnet: 08-10615
+#           Veronica Linayo   #  carnet: 08-10615
 #           Audry Morillo     #  carnet: 07-41253
 #           Vanessa Rivas     #  carnet: 10-10608
 #           Michael Woo       #  carnet: 09-10912
@@ -17,15 +17,17 @@
 
 class Persona(object):
 
-    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Url = None):
+    def __init__(self, ci, nombre, apellido, institucion_afiliada,
+                  email, pais, url = None):
+        
         """Constructor"""
-        self.CI = CI
-        self.Nombre = Nombre
-        self.Apellido = Apellido
-        self.Institucion_Afiliada = Institucion_Afiliada
-        self.Email = Email
-        self.Pais = Pais
-        self.Url = Url
+        self.ci = ci
+        self.nombre = nombre
+        self.apellido = apellido
+        self.institucion_afiliada = institucion_afiliada
+        self.email = email
+        self.pais = pais
+        self.url = url
 
     def __str__(self):
         
@@ -46,7 +48,7 @@ class Persona(object):
 #
 # Autores : 
 #           David Lilue       #  carnet: 09-10444
-#           Veronica Liniayo  #  carnet: 08-10615
+#           Veronica Linayo   #  carnet: 08-10615
 #           Audry Morillo     #  carnet: 07-41253
 #           Vanessa Rivas     #  carnet: 10-10608
 #           Michael Woo       #  carnet: 09-10912
@@ -58,14 +60,18 @@ class Persona(object):
 
 class Asistente(Persona):
     
-    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais,Cod_Postal, Telefono, Ponente = False, Autor = False, Url= None):
+    def __init__(self, ci, nombre, apellido, institucion_afiliada, email, 
+                 pais,cod_postal, telefono, ponente, autor, url= None):
+        
         """Constructor"""
-        super(Asistente, self).__init__(CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Url)
-        self.Ponente = Ponente
-        self.Autor = Autor
-        self.Cod_Postal = Cod_Postal
-        self.Url = Url
-        self.Telefono = Telefono
+        super(Asistente, self).__init__(ci, nombre, apellido, 
+              institucion_afiliada, email, pais, url)
+        
+        self.ponente = False
+        self.autor = False
+        self.cod_postal = cod_postal
+        self.url = url
+        self.telefono = telefono
         
 #*****************************************************************************
 # Clase : Miembro_Cp
@@ -75,7 +81,7 @@ class Asistente(Persona):
 #
 # Autores : 
 #           David Lilue       #  carnet: 09-10444
-#           Veronica Liniayo  #  carnet: 08-10615
+#           Veronica Linayo   #  carnet: 08-10615
 #           Audry Morillo     #  carnet: 07-41253
 #           Vanessa Rivas     #  carnet: 10-10608
 #           Michael Woo       #  carnet: 09-10912
@@ -84,26 +90,31 @@ class Asistente(Persona):
 # Seccion : 1
 #
 #*****************************************************************************    
-class Miembro_Cp(Persona):
+class MiembroCp(Persona):
     
-    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Experticia = None, Url = None):
+    def __init__(self, ci, nombre, apellido, institucion_afiliada, email, 
+                 pais, experticia = None, url = None):
+        
         """Constructor"""
-        super(Miembro_Cp, self).__init__(CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Url)
-        self.Presidente = False
-        self.Experticia = Experticia
+        super(MiembroCp, self).__init__(ci, nombre, apellido, 
+              institucion_afiliada, email, pais, url)
+        
+        self.presidente = False
+        self.experticia = experticia
     
-    def set_Presidente(self):
+    def set_presidente(self):
         """  Metodo : Set_Presidente
         Parametros : self
         boolean val
-        Descripcion: Cambia el cargo de una miebro """
-        self.Presidente = True
+        Descripcion: Cambia el cargo de un miembro """
+        self.presidente = True
     
 #if __name__=="__main__":
     
     #p = Miembro_Cp(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela")
-    #p = Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ", ["op", "bd"])
-    #p = Asistente(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela",True, False, 25, 555, "google.com")
+    #p = Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ",["op", "bd"])
+    #p = Asistente(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,
+    #"Venezuela",True, False, 25, 555, "google.com")
     #print p
     
   
