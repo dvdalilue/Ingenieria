@@ -147,6 +147,7 @@ class MiembroCp(Persona):
         Parametros : self
         boolean val
         Descripcion: Cambia el cargo de una miebro """
+
         self.es_presidente = True
     
 #if __name__=="__main__":
