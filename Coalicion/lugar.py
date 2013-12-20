@@ -1,6 +1,5 @@
-#!/usr/bin/python
-
 class Lugar(object):
+
     def __init__(self, nombre, ubicacion, capacidad_maxima):
        
        self.nombre = nombre
@@ -23,7 +22,7 @@ class Lugar(object):
         datos += "\n"
         return datos
 
-if __name__=='__main__':
+#if __name__=="__main__":
     
-    l = Lugar("MYS", "Mys-019", 300)
-    print l
+ #   l = Lugar("MYS", "Mys-019", 300)
+  #  print l
