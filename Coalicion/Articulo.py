@@ -96,12 +96,12 @@ class Articulo:
         keys = OrderedDict(self.__dict__).keys()
         datos = ""
         for n in keys:
-            if n != 'Calificaciones' and n != 'id_Articulo' and n != 'Jurado':
+            if n != 'calificaciones' and n != 'id_articulo' and n != 'jurado':
                 datos += "\n%s: %s"%(n,str(self.__dict__[n]))
         datos += "\n"
         return datos
     
 #if __name__ =="__main__":
-# 
-#    art = Articulo(1,"Titulo1", "Pedro Perez", ["Palabra" ,"clave"], "bases de datos" )
-#    print art
+
+   #art = Articulo(1,"Titulo1", "Pedro Perez", ["Palabra" ,"clave"], "bases de datos", "texto del articulo" , "resumen del articulo")
+   #print art
