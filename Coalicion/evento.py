@@ -109,7 +109,7 @@ class Sesion_de_ponencias(Evento):
 
 class Charla_invitada(Evento):
 
-    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar, 
+    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar,
                  moderador, charlista, resumen, palabras_claves, topico):
 
         if not(topico in moderador.Experticia):
