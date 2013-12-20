@@ -22,7 +22,8 @@ import Persona
 
 class Evento(object):
     
-    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar):
+    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, 
+                 lugar):
 
         # hacer esto antes del constructor
         # dia_ini, mes_ini, anio_ini, hora_ini, min_ini, dia_fin, mes_fin, 
@@ -67,8 +68,8 @@ class Evento(object):
 
 class Sesion_de_ponencias(Evento):
 
-    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, 
-                 lugar, ponencia1, ponencia2, ponencia3 = None, ponencia4 = None):
+    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin,lugar,
+                  ponencia1, ponencia2, ponencia3 = None, ponencia4 = None):
 
         super(Sesion_de_ponencias, self).__init__(nombre, fecha_ini, fecha_fin,
                                                    hora_ini, hora_fin, lugar)
@@ -108,7 +109,7 @@ class Sesion_de_ponencias(Evento):
 
 class Charla_invitada(Evento):
 
-    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar, 
+    def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar,
                  moderador, charlista, resumen, palabras_claves, topico):
 
         if not(topico in moderador.Experticia):

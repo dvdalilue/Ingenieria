@@ -1,5 +1,5 @@
 #*****************************************************************************
-# Clase : Probar_Clases
+# Clase : Probar_Articulo
 #
 # Descripcion : Clase que implementa las pruebas unitarias
 #

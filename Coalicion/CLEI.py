@@ -9,9 +9,8 @@
 # Seccion : 1
 #
 #*****************************************************************************
-from Persona import Inscrito, Miembro_Cp
+from Persona import Asistente, MiembroCp
 from Articulo import Articulo
-from Topico import Topico
 import os
 
 class CLEI(object):
