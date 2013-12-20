@@ -14,7 +14,7 @@
 # Seccion : 1
 #
 #*****************************************************************************
-from Persona import Persona, Miembro_Cp
+from Persona import *
 from collections import OrderedDict
 
 class Articulo:
@@ -45,8 +45,8 @@ class Articulo:
         esa calificacion al articulo
         """
         # se verifica que un miembro no vote mas de una vez
-        for n in self.Jurado:
-            if Miembro_Cp.is_equal(miembro_cp,n):
+        for n in self.jurado:
+            if MiembroCp.is_equal(miembro_cp,n):
                 print 'ya voto'
                 return False        
             # si la puntuacion es valida se alamacena en el 
@@ -83,7 +83,7 @@ class Articulo:
         sino permanece False
         """
         self.calcular_promedio()
-        if len(self.Jurado) > 2:
+        if len(self.jurado) > 2:
             if self.puntaje_promedio >= float(3):
                 self.aceptable = True
         return self.aceptable        

@@ -112,7 +112,7 @@ class MiembroCp(Persona):
     @staticmethod
     def is_equal(miembro1,miembro2):
         
-        if miembro1.CI == miembro2.CI:
+        if miembro1.ci == miembro2.ci:
             return True
         return False
     
