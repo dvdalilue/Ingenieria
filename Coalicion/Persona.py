@@ -106,3 +106,4 @@ class Miembro_Cp(Persona):
     #p = Asistente(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela",True, False, 25, 555, "google.com")
     #print p
     
+  
