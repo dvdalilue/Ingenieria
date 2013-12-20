@@ -139,7 +139,7 @@ class MiembroCp(Persona):
         Parametros : self
         boolean val
         Descripcion: Cambia el cargo de una miebro """
-        self.Presidente = True
+        self.presidente = True
 
     @staticmethod
     def is_equal(miembro1,miembro2):
@@ -148,7 +148,7 @@ class MiembroCp(Persona):
             return True
         return False
     
-if __name__=="__main__":
+#if __name__=="__main__":
     
     #p = MiembroCp(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela")
     #p = MiembroCp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ",["op", "bd"])
