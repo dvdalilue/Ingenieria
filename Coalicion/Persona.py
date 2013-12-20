@@ -112,7 +112,7 @@ class MiembroCp(Persona):
 #if __name__=="__main__":
     
     #p = Miembro_Cp(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,"Venezuela")
-    #p = Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ", ["op", "bd"])
+    #p = Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve","Venezuela ",["op", "bd"])
     #p = Asistente(3,"Maria", "Andrade", "USB", "ma@usb.ve" ,
     #"Venezuela",True, False, 25, 555, "google.com")
     #print p
