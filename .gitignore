@@ -1,6 +1,7 @@
 *.py[cod]
 *.autosave
 .directory
+*.py~
 
 # C extensions
 *.so

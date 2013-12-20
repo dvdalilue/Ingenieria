@@ -13,12 +13,14 @@ from Persona import Persona
 
 class Articulo:
 
-    def __init__(self, Id, Titulo, Autor, Palabras_Claves, Topico):
+    def __init__(self, Id, Titulo, Autor, Palabras_Claves, Topico, Texto, Resumen):
         """Constructor"""
         self.Id_Articulo = Id
         self.Titulo = Titulo
         self.Autor = Autor
         self.Palabras_Claves = Palabras_Claves
+        self.Texto = self.Texto
+        self.Resumen = self.Resumen
         self.Topico = Topico
         self.Jurado = []                # Arreglo de miembro_cp que evaluan el articulo
         self.Aceptable = False            # es true si el puntaje promedio del articulo es mayot o igual a 3,00
