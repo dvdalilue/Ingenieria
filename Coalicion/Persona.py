@@ -47,7 +47,7 @@ class Persona(object):
 
 class Asistente(Persona):
     
-    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Ponente, Autor, Cod_Postal, Telefono, Url= None):
+    def __init__(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Ponente = False, Autor = False, Cod_Postal, Telefono, Url= None):
         """Constructor"""
         super(Asistente, self).__init__(CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais)
         self.Ponente = Ponente
