@@ -98,6 +98,14 @@ class Miembro_Cp(Persona):
         boolean val
         Descripcion: Cambia el cargo de una miebro """
         self.Presidente = True
+
+    @staticmethod
+    def is_equal(miembro1,miembro2):
+        
+        if miembro1.CI == miembro2.CI:
+            return True
+        return False
+
     
 #if __name__=="__main__":
     
