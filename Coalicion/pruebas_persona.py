@@ -41,19 +41,19 @@ class Test_Persona(unittest.TestCase):
                              "Venezuela", self.cv )
     self.invitado1 = Invitado(31, "Marcos", "Perez", "UCV", "mp@ucv.ve",
                                "Venezuela", self.cv )
-    self.miembro_cp = MiembroCp(40, "Leonardo", "Martinez", "USB", "lm@usb.ve",
+    self.miembro_cp = MiembroCp(40, "Leonardo", "Martinez","USB","lm@usb.ve",
                                  "Venezuela", ["bd", "so"] )
-    self.miembro_cp1 = MiembroCp(41, "Leonardo", "Martinez", "USB", "lm@usb.ve",
+    self.miembro_cp1 = MiembroCp(41, "Leonardo", "Martinez","USB","lm@usb.ve",
                                   "Venezuela", ["bd", "so"] )
 
   def test_crear_Persona(self):
     
     self.assertEqual(self.persona.ci, 10) , "Falla asignando ci"
     self.assertEqual(self.persona.nombre, "Carlos") , "Falla asignando nombre"
-    self.assertEqual(self.persona.apellido, "Gomez") , "Falla asignando apellido"
+    self.assertEqual(self.persona.apellido, "Gomez"),"Falla asignando apellido"
     self.assertEqual(self.persona.institucion_afiliada, "UCAB") , 
     "Falla asignando institucion afiliada"
-    self.assertEqual(self.persona.email, "cg@ucab.ve") , "Falla asignando email"
+    self.assertEqual(self.persona.email, "cg@ucab.ve"),"Falla asignando email"
     self.assertEqual(self.persona.pais, "Venezuela") , "Falla asignando pais"
 
   def test_is_equal(self):
