@@ -1,7 +1,7 @@
 #*****************************************************************************
-# Clase : prueba_lugar.py
+# Clase : prueba_inscripcion.py
 #
-# Descripcion : Clase que implementa las pruebas unitarias de la clase lugar
+# Descripcion : Clase que implementa las pruebas unitarias de la clase inscripcion
 #
 # Autores : David Lilue       #  carnet: 09-10444
 #           Veronica Linayo   #  carnet: 08-10615
