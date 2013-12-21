@@ -179,74 +179,140 @@ class CLEI(object):
         return False
 
     def crear_articulo(self):
-	  
-       """ Metodo : crear_articulo
-      Parametros : self 
-      Descripcion; pide al usuario los datos necesarios para crear
-             los articulos que quieren ser presentados en el CLEI
-       """
-       titulo = raw_input('Titulo del Articulo: ')
-       palabras_claves = []
-       palabra1 = raw_input('Palabra Clave: ')
-       palabras_claves.append(palabra1)
-       while True:
-		 try:
-		   mas_palabras = int(raw_input("desea agregar mas palabras claves? \n1. Si \n2. No\n"))
-		   os.system("clear")
-		   break
-		 except (TypeError, ValueError):
-		   os.system("clear")
-		   print "Error, Debe ingresar un numero, trate de nuevo\n"
+		  
+        """ Metodo : crear_articulo
+        Parametros : self 
+        Descripcion; pide al usuario los datos necesarios para crear
+        los articulos que quieren ser presentados en el CLEI
+        """
+        titulo = raw_input('Titulo del Articulo: ')
+        palabras_claves = []
+        palabra1 = raw_input('Palabra Clave: ')
+        palabras_claves.append(palabra1)
+        while True:
+            try:
+                mas_palabras = int(raw_input("desea agregar mas palabras claves? \n1. Si \n2. No\n"))
+                os.system("clear")
+                break
+            except (TypeError, ValueError):
+                os.system("clear")
+                print "Error, Debe ingresar un numero, trate de nuevo\n"
 
-       cont = 0
-       while mas_palabras == 1 and cont < 5:
-		 palabra2 = raw_input('Palabra Clave: ')
-		 palabras_claves.append(palabra2)
-		 cont = cont + 1
-		 while True:
-			try:
-			  mas_palabras = int(raw_input("desea agregar mas palabras claves? \n1. Si \n2. No\n"))
-			  os.system("clear")
-			  break
-			except (TypeError, ValueError):
-			  os.system("clear")
-			  print "Error, Debe ingresar un numero, trate de nuevo\n"
-       topico = raw_input('Topico: ')
-       texto =  raw_input('Texto: ')
-       resumen =  raw_input('Resumen: ')
+        cont = 0
+        while mas_palabras == 1 and cont < 5:
+            palabra2 = raw_input('Palabra Clave: ')
+            palabras_claves.append(palabra2)
+            cont = cont + 1
+            while True:
+                try:
+                    mas_palabras = int(raw_input("desea agregar mas palabras claves? \n1. Si \n2. No\n"))
+                    os.system("clear")
+                    break
+                except (TypeError, ValueError):
+                    os.system("clear")
+                    print "Error, Debe ingresar un numero, trate de nuevo\n"
+        topico = raw_input('Topico: ')
+        texto =  raw_input('Texto: ')
+        resumen =  raw_input('Resumen: ')
        
-       while True:
+        while True:
 		#se verifica que el valor de la opcion insertada por el usuario sea un entero
-		try:
-		  ci = int(raw_input('CI del Autor: '))
-		  break
-		except (TypeError, ValueError):
-		  os.system("clear")
-		  print "Error, Debe ingresar un numero, trate de nuevo\n"
-       nombre = raw_input('Nombre del Autor: ')
-       apellido = raw_input('Apellido del Autor: ')
-       institucion_afiliada= raw_input('Institucion Afiliada del Autor: ')
-       email= raw_input('Email del Autor: ')
-       pais= raw_input('Pais del Autor: ')
-       asistente = False
-       ponente = False
-       autor = True
-       while True:
-		#se verifica que el valor de la opcion insertada por el usuario sea un entero
-		try:
-			cod_postal= int(raw_input('Codigo postal del Autor: '))
-			break
-		except (TypeError, ValueError):
-			os.system("clear")
-			print "Error, Debe ingresar un numero, trate de nuevo\n"
-       url= raw_input('Url del Autor: ')
-       telefono= raw_input('Telefono: ')
-       autor = Asistente(ci, nombre, apellido, institucion_afiliada, email, pais, cod_postal, telefono, ponente, autor, url)
-       if (self.aniadir_articulo(self.id_articulo, titulo, autor, palabras_claves, topico,texto,resumen)):
-           print('Articulo Agregado')
-           self.id_articulo = self.id_articulo + 1
-   
+            try:
+                ci = int(raw_input('CI del Autor: '))
+                break
+            except (TypeError, ValueError):
+                os.system("clear")
+                print "Error, Debe ingresar un numero, trate de nuevo\n"
+        nombre = raw_input('Nombre del Autor: ')
+        apellido = raw_input('Apellido del Autor: ')
+        institucion_afiliada= raw_input('Institucion Afiliada del Autor: ')
+        email= raw_input('Email del Autor: ')
+        pais= raw_input('Pais del Autor: ')
+        asistente = False
+        ponente = False
+        autor = True
+        while True:
+            #se verifica que el valor de la opcion insertada por el usuario sea un entero
+            try:
+                cod_postal= int(raw_input('Codigo postal del Autor: '))
+                break
+            except (TypeError, ValueError):
+                os.system("clear")
+                print "Error, Debe ingresar un numero, trate de nuevo\n"
+        url= raw_input('Url del Autor: ')
+        telefono= raw_input('Telefono: ')
+        autor = Asistente(ci, nombre, apellido, institucion_afiliada, email, pais, cod_postal, telefono, ponente, autor, url)
+        if (self.aniadir_articulo(self.id_articulo, titulo, autor, palabras_claves, topico,texto,resumen)):
+            print('Articulo Agregado')
+            self.id_articulo = self.id_articulo + 1
+ 
+    def realizar_votacion(self, cod_articulo, ci_miembro_cp, puntaje):
+        """ Metodo : realizar_votacion
+        Parametros : self 
+        int cod_articulo , ci_miembro_cp , puntaje
+        Descripcion; se verifica que la persona que vote sea un miembro de cp
+        y luego califica el articulo 
+        """
+        for miembro in self.miembros_cp:
+            if miembro.ci == ci_miembro_cp:
+                juez = miembro
+                for articulo in self.lista_articulos:
+                    if articulo.id_articulo == cod_articulo:
+                        return articulo.calificar(juez, puntaje)
+        print('usted no es miembro del comite ')
+        return False
+
+    def ordenar_articulos(self):   
+       """ Metodo : ordenar_articulos
+      Parametros : self 
+      Descripcion; toma todos los articulos de lista_articulos, verifica
+      cuales tienen un promedio mayor o igual a 3 y los agrega a la
+      lista de aceptables. Luego toma esa lista y las ordena de mayor 
+      a menor puntaje
+       """
+       self.aceptables = []
+       for articulo in  self.lista_articulos:
+           if articulo.verificar_aceptable():
+               self.aceptables.append(articulo)
+       lista_ordenada = sorted(self.aceptables, key=lambda aceptable: aceptable.puntaje_promedio, reverse=True) 
+       return lista_ordenada
+    
+    def filtrar_admitidos(self, n):
+       """ Metodo : filtrar_admitidos
+      Parametros : self 
+             int n 
+      Descripcion; dado n, el max de articulos admitidos por el CLEI, se
+             se filtran los articulo de Lista_Articulos, para elegir
+             aquellos con mejores puntuaciones (si el numero
+             de empatados supera el valor de n, no se colocan
+             en la lista de admitidos)
+       """
+       admitidos= []
+       # se colocan en Lista Ordenada , los articulos aceptables de mayor
+       # a menor puntaje
+       lista_ordenada = self.ordenar_articulos()
       
+       while n > 0:
+       #si n es menor al numero de articulos aceptables, debemos elegir cuales tomar
+           if n < len(lista_ordenada):
+       # si el ultimo articulo no esta empatado con el siguiente, tomamos los n primeros
+       # articulos de la lista de articulos aceptables
+               if lista_ordenada[n-1].puntaje_promedio !=  lista_ordenada[n].puntaje_promedio:
+                   admitidos = lista_ordenada[0:n]
+                   return admitidos
+               #sino restamos uno, hasta encontrar un articulo que no este empatado con ninguno de
+               # los que no hemos admitido
+               else:
+                   if n > 0:
+                       n = n - 1
+           #si n es mayor o igual a numero de articulos aceptables        
+           else:
+       # admitidos sera igual a aceptables
+               admitidos = lista_ordenada
+               return admitidos
+               
+       return admitidos
+
   
 if __name__=="__main__":
     
@@ -263,78 +329,13 @@ if __name__=="__main__":
     #for i in conferencia.miembros_cp:
 	  #print i
     ##------
-    conferencia.crear_articulo()
-    for i in conferencia.lista_articulos:
-	  print i
- 
+    #conferencia.crear_articulo()
+    #for i in conferencia.lista_articulos:
+	  #print i
+	##.------------------------
+   
+
 #    
-#    def Realizar_Votacion(self, cod_articulo, CI_miembro_cp, puntaje):
-#        """ Metodo : Realizar_Votacion
-#       Parametros : self 
-#              int cod_articulo , CI_miembro_cp , puntaje
-#       Descripcion; se verifica que la persona que vote sea un miembro de cp
-#              y luego califica el articulo 
-#        """
-#        for Miembro in self.miembros_cp:
-#            if Miembro.CI == CI_miembro_cp:
-#                Juez = Miembro
-#                for Articulo in self.Lista_Articulos:
-#                    if Articulo.id_articulo == cod_articulo:
-#                        return Articulo.Calificar(Juez, puntaje)
-#        print('usted no es miembro del comite ')
-#        return False
-#    
-#    def Ordenar_Articulos(self):   
-#        """ Metodo : Ordenar_Articulos
-#       Parametros : self 
-#       Descripcion; toma todos los articulos de Lista_Articulos, verifica
-#       cuales tienen un promedio mayor o igual a 3 y los agrega a la
-#       lista de aceptables. Luego toma esa lista y las ordena de mayor 
-#       a menor puntaje
-#        """
-#        self.aceptables = []
-#        for articulo in  self.Lista_Articulos:
-#            if articulo.verificar_Aceptable():
-#                self.aceptables.append(articulo)
-#        Lista_Ordenada = sorted(self.aceptables, key=lambda aceptable: aceptable.Puntaje_promedio, reverse=True) 
-#        return Lista_Ordenada
-# 
-#    
-#    def Filtrar_admitidos(self, n):
-#        """ Metodo : Filtrar_admitidos
-#       Parametros : self 
-#              int n 
-#       Descripcion; dado n, el max de articulos admitidos por el CLEI, se
-#              se filtran los articulo de Lista_Articulos, para elegir
-#              aquellos con mejores puntuaciones (si el numero
-#              de empatados supera el valor de n, no se colocan
-#              en la lista de admitidos)
-#        """
-#        admitidos= []
-#        # se colocan en Lista Ordenada , los articulos aceptables de mayor
-#        # a menor puntaje
-#        Lista_Ordenada = self.Ordenar_Articulos()
-#       
-#        while n > 0:
-#        #si n es menor al numero de articulos aceptables, debemos elegir cuales tomar
-#            if n < len(Lista_Ordenada):
-#        # si el ultimo articulo no esta empatado con el siguiente, tomamos los n primeros
-#        # articulos de la lista de articulos aceptables
-#                if Lista_Ordenada[n-1].Puntaje_promedio !=  Lista_Ordenada[n].Puntaje_promedio:
-#                    admitidos = Lista_Ordenada[0:n]
-#                    return admitidos
-#                #sino restamos uno, hasta encontrar un articulo que no este empatado con ninguno de
-#                # los que no hemos admitido
-#                else:
-#                    if n > 0:
-#                        n = n - 1
-#            #si n es mayor o igual a numero de articulos aceptables        
-#            else:
-#        # admitidos sera igual a aceptables
-#                admitidos = Lista_Ordenada
-#                return admitidos
-#                
-#        return admitidos
 #     
 #     
 #    def Filtrar_empatados(self, N):
