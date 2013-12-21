@@ -49,7 +49,7 @@ class Evento(object):
         return datos
 
 #*****************************************************************************
-# Clase : Sesion_de_Ponencias
+# Clase : SesionDePonencias
 #
 # Descripcion : Clase que hereda de Evento e implementa las sesiones de 
 #                ponencias que se daran en  el CLEI
@@ -66,12 +66,12 @@ class Evento(object):
 #
 #***************************************************************************** 
 
-class Sesion_de_ponencias(Evento):
+class SesionDePonencias(Evento):
 
     def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin,lugar,
                   ponencia1, ponencia2, ponencia3 = None, ponencia4 = None):
 
-        super(Sesion_de_ponencias, self).__init__(nombre, fecha_ini, fecha_fin,
+        super(SesionDePonencias, self).__init__(nombre, fecha_ini, fecha_fin,
                                                    hora_ini, hora_fin, lugar)
         self.ponencias = []
         
@@ -107,15 +107,15 @@ class Sesion_de_ponencias(Evento):
 #
 #***************************************************************************** 
 
-class Charla_invitada(Evento):
+class CharlaInvitada(Evento):
 
     def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin, lugar,
                  moderador, charlista, resumen, palabras_claves, topico):
 
-        if not(topico in moderador.Experticia):
-            raise Exception
+        #if not(topico in moderador.Experticia):
+        #    raise Exception
 
-        super(Charla_invitada, self).__init__(nombre, fecha_ini, fecha_fin, 
+        super(CharlaInvitada, self).__init__(nombre, fecha_ini, fecha_fin, 
                                               hora_ini, hora_fin, lugar)
 
         self.moderador = moderador
@@ -124,21 +124,7 @@ class Charla_invitada(Evento):
         self.palabras_claves = palabras_claves
         self.topico = topico
 
-        
-#if __name__=="__main__":
-    
-#    fecha_ini1 = datetime.date(2013,12,19)
- #   fecha_fin1 = datetime.date(2013,12,20)
-  #  hora_ini1 = datetime.time(8,0,0)
-  #  hora_fin1 = datetime.time(9,0,0)
-  #  moderador1 = Persona.Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve",
-  #"Venezuela ", ["op", "bd"])
-    
-  #  try:
-  #      p = Charla_invitada("Charlita",fecha_ini1, fecha_fin1, hora_ini1, hora_fin1,
-         #"Mys",moderador1, "Marlene", "resumen", "Clave", "op")
-  #      print p
-  #  except:
-   #     print '\nEl moderador es bruto D:\n'
-
-        
+class Taller(Evento):
+  def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin,
+               lugar, articulo):
+    super(Taller, self)
