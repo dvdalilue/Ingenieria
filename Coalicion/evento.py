@@ -90,7 +90,7 @@ class SesionDePonencias(Evento):
         return False
 
 #*****************************************************************************
-# Clase : Charla_invitada
+# Clase : CharlaInvitada
 #
 # Descripcion : Clase que hereda de Evento e implementa las charlas invitadas
 #           que se daran en  el CLEI
@@ -124,7 +124,26 @@ class CharlaInvitada(Evento):
         self.palabras_claves = palabras_claves
         self.topico = topico
 
+#*****************************************************************************
+# Clase : Taller
+#
+# Descripcion : Clase que hereda de Evento e implementa los talleres a ser
+#               impartidos en CLEI
+#
+# Autores : 
+#           David Lilue       #  carnet: 09-10444
+#           Veronica Linayo   #  carnet: 08-10615
+#           Audry Morillo     #  carnet: 07-41253
+#           Vanessa Rivas     #  carnet: 10-10608
+#           Michael Woo       #  carnet: 09-10912
+#
+# Grupo :1, 3, 4 
+# Seccion : 1
+#
+#***************************************************************************** 
 class Taller(Evento):
   def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin,
                lugar, articulo):
-    super(Taller, self)
+    super(Taller, self).__init__(nombre, fecha_ini, fecha_fin, hora_ini,
+                                 hora_fin, lugar)
+    self.articulo = articulo
