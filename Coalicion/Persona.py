@@ -149,6 +149,15 @@ class MiembroCp(Persona):
         Descripcion: Cambia el cargo de una miebro """
 
         self.es_presidente = True
+        
+class Ponente(Asistente):
+  def __init__(self, ci, nombre, apellido, institucion_afiliada, email,
+	             pais, cod_postal, telefono, url=None):
+    """Constructor"""
+    super(Ponente, self).__init__(ci, nombre, apellido,
+		                                institucion_afiliada, email, pais,
+                                    cod_postal, telefono, True, False, 
+                                    url)        
     
 #if __name__=="__main__":
     

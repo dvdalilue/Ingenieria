@@ -124,21 +124,7 @@ class CharlaInvitada(Evento):
         self.palabras_claves = palabras_claves
         self.topico = topico
 
-        
-#if __name__=="__main__":
-    
-#    fecha_ini1 = datetime.date(2013,12,19)
- #   fecha_fin1 = datetime.date(2013,12,20)
-  #  hora_ini1 = datetime.time(8,0,0)
-  #  hora_fin1 = datetime.time(9,0,0)
-  #  moderador1 = Persona.Miembro_Cp(4,"Jose", "Camejo","USB", "jc@usb.ve",
-  #"Venezuela ", ["op", "bd"])
-    
-  #  try:
-  #      p = Charla_invitada("Charlita",fecha_ini1, fecha_fin1, hora_ini1, hora_fin1,
-         #"Mys",moderador1, "Marlene", "resumen", "Clave", "op")
-  #      print p
-  #  except:
-   #     print '\nEl moderador es bruto D:\n'
-
-        
+class Taller(Evento):
+  def __init__(self, nombre, fecha_ini, fecha_fin, hora_ini, hora_fin,
+               lugar, articulo):
+    super(Taller, self)
