@@ -23,7 +23,7 @@ class Inscripcion(object):
         
         """Constructor"""
         self.asistente = asistente
-        self.fecha_inscripcion = fecha_incripcion
+        self.fecha_inscripcion = fecha_inscripcion
         self. monto = monto
         
     def __str__(self):

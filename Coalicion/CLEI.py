@@ -16,6 +16,7 @@
 #*****************************************************************************
 
 from Articulo import *
+from Persona import MiembroCp
 import os
 
 class CLEI(object):
@@ -29,89 +30,126 @@ class CLEI(object):
         self.empatados = []
         self.id_articulo = 0        # variable global que se utilizara para identificar univocamente los articulos
     
-    def aniadir_miembro(self, CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Experiencia=None, Url=None):    
-        """ Metodo : Aniadir_Miembro
+    def aniadir_miembro(self, ci, nombre, apellido, institucion_afiliada, email, pais, experticia=None):    
+        """ Metodo : aniadir_miembro
         Parametros : self 
-        int CI 
-        string Nombre , Apellido , Institucion_Afiliada , Email, Pais, Cargo, Experiencia
+        int ci 
+        string nombre , apellido , institucion_afiliada , email, pais, cargo, experticia
         Descripcion; dado los atributos de un miembro, se crea y se agrega al arreglo
         correspondiente a los miembros del CP
         """
+        # se verifica que no se agregue dos veces al mismo miembro
         for n in self.miembros_cp:
-            if n.ci == CI:
+            if n.ci == ci:
                 print('Ya existe un miembro con esa CI') 
                 return False
 
-        Miembro = MiembroCp(CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Experiencia, Url)
-      
-        # se verifica que no se agregue dos veces al mismo miembro
-        self.miembros_cp.append(Miembro)
+        miembro = MiembroCp(ci, nombre, apellido, institucion_afiliada, email, pais, experticia) 
+        self.miembros_cp.append(miembro)
         return True     
      
-    def aniadir_articulo(self, Id_Articulo, Titulo, Autor, Palabras_Claves, Topico, Texto, Resumen):
-        """ Metodo : Aniadir_Miembro
+    def aniadir_articulo(self, id_articulo, titulo, autor, palabras_claves,topico, texto, resumen):
+        """ Metodo : aniadir_miembro
        Parametros : self 
-             int id
-             string Titulo
-             Autor Autor
-             string[] Palabras_Claves
-             Topico[] Topico
+             int id_articulo
+             string titulo
+             Autor autor
+             string[] palabras_Claves
+             string[] Topico
        Descripcion; dado los atributos de un articulo, se crea y se agrega al arreglo
               de articulos
       """
+		#se verifica que no se agreguen dos veces el mismo articulo
         for n in self.lista_articulos:
-            if n.id_articulo == Id_Articulo:
+            if n.id_articulo == id_articulo:
                 print('Ya existe este articulo')
                 return False
 
-        articulo = Articulo(Id_Articulo, Titulo, Autor, Palabras_Claves, Topico, Texto, Resumen)
-        
-        #se verifica que no se agreguen dos veces el mismo articulo
-
+        articulo = Articulo(id_articulo, titulo, autor, palabras_claves,topico, texto, resumen)
         self.lista_articulos.append(articulo)
         return True
     
-    def Crear_Comite(self):
+    def crear_comite(self):
         """ 
-        Metodo : Crear_Comite
+        Metodo : crear_comite
        Parametros : self 
        Descripcion; pide al usuario los datos necesarios para crear
               los miembros del comite de programa y agregarlos
               al arreglo miembros_cp
         """
-      
-        var = int(raw_input('desea agregar un miembro al comite? \n1. Si \n2. No\n'))
-        os.system("clear")
-        # mietras el usuario quiera agregar miembros al comite, se pediran
+        while True:
+		  try:
+			var = int(raw_input('desea agregar un miembro al comite? \n1. Si \n2. No\n'))
+			os.system("clear")
+			break
+		  except (TypeError, ValueError):
+			os.system("clear")
+			print "Error, Debe ingresar un numero, trate de nuevo\n"
+		# mietras el usuario quiera agregar miembros al comite, se pediran
         # los datos pertienentes para crearlos
-        while (1 == var):
-            CI = int(raw_input('introduzca la cedula de identidad: '))
-            i = 0
+        
+        while 1 == var:
+		  while True:
+			  try:
+				ci = int(raw_input('introduzca la cedula de identidad: '))
+				i = 0
+				break
+			  except (TypeError, ValueError):
+				os.system("clear")
+				print "Error, Debe ingresar un numero, trate de nuevo\n"
+		  
             # se espera que el usuario coloque un CI que no exista en el sistema
-            while(i < len(self.miembros_cp)):
-                if CI == self.miembros_cp[i].CI:
-                    os.system("clear")
-                    CI = int(raw_input('esta cedula de identidad ya esta registrada\nintroduzca la cedula de identidad: '))
-                    i = 0
-                else:
-                    i = i + 1
-            Nombre = raw_input('Nombre: ')
-            Apellido = raw_input('Apellido: ')
-            Institucion_Afiliada = raw_input('Institucion Afiliada: ')
-            Email = raw_input('Email: ')
-            Pais = raw_input('Pais: ')
-            Experiencia = []
-            var1 = int(raw_input("desea agregar un tema de experiencia? \n1. Si \n2. No\n"))
-            os.system("clear")
-            while(var1 == 1): 
-                Experiencia.append(raw_input("Topico: "))
-                var1 = int(raw_input("desea agregar un nuevo tema de experiencia? \n1. Si \n2. No\n"))
-                os.system("clear")
-            if (self.Aniadir_Miembro(CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Experiencia)):
-                print('Miembro agregado')
+		  while(i < len(self.miembros_cp)):
+			if ci == self.miembros_cp[i].ci:
+			  while True:
+				os.system("clear")
+				#se verifica que el valor de la opcion insertada por el usuario sea un entero
+				try:
+				  ci = int(raw_input('esta cedula de identidad ya esta registrada\nintroduzca la cedula de identidad: '))
+				  i = 0
+				  break
+				except (TypeError, ValueError):
+				  os.system("clear")
+				  print "Error, Debe ingresar un numero, trate de nuevo\n"
+			else:
+			  i = i + 1
+		  nombre = raw_input('Nombre: ')
+		  apellido = raw_input('Apellido: ')
+		  institucion_afiliada = raw_input('Institucion Afiliada: ')
+		  email = raw_input('Email: ')
+		  pais = raw_input('Pais: ')
+		  experticia = []
             
-            var = int(raw_input("desea agregar un miembro al comite? \n1. Si \n2. No\n"))
-            os.system("clear")
+		  while True:
+			  try:
+				var1 = int(raw_input("desea agregar un tema de experiencia? \n1. Si \n2. No\n"))
+				os.system("clear")
+				break
+			  except (TypeError, ValueError):
+				os.system("clear")
+				print "Error, Debe ingresar un numero, trate de nuevo\n"
+			
+		  while(var1 == 1):
+			experticia.append(raw_input("Topico: "))
+			while True:
+			  try:
+				 var1 = int(raw_input("desea agregar un nuevo tema de experiencia? \n1. Si \n2. No\n"))
+				 os.system("clear")
+				 break
+			  except (TypeError, ValueError):
+				os.system("clear")
+				print "Error, Debe ingresar un numero, trate de nuevo\n"
+		  if (self.aniadir_miembro(ci, nombre, apellido, institucion_afiliada, email, pais, experticia)):
+			print('Miembro agregado')
+                
+		  while True:
+			try:
+			  var = int(raw_input("desea agregar un miembro al comite? \n1. Si \n2. No\n"))
+			  os.system("clear")
+			  break
+			except (TypeError, ValueError):
+			  os.system("clear")
+			  print "Error, Debe ingresar un numero, trate de nuevo\n"
         return self.miembros_cp
     
     def elegir_PresidenteCP(self):
@@ -120,54 +158,115 @@ class CLEI(object):
         Descripcion: Cambia el cargo de una miebro a presidente del CP, si todavia no
         existe uno"""
         for i in self.miembros_cp:
-            if i.presidente == True:
+            if i.es_presidente == True:
                 print ('Lo siento, ya existe un presidente')
                 return False
-        id_miembro_cp = int(raw_input('introduzca la cedula de identidad del miembro que eligio de presidente: '))
+        while True:
+		  try:
+			id_miembro_cp = int(raw_input('introduzca la cedula de identidad del miembro que eligio de presidente: '))
+			break
+		  except (TypeError, ValueError):
+			os.system("clear")
+			print "Error, Debe ingresar un numero, trate de nuevo\n"
         
         # se espera que el usuario coloque un CI que no exista en el sistema
         for i in self.miembros_cp:
             if id_miembro_cp == i.ci:
                 i.set_presidente()
+                print "\nPresidente elegido con exito\n"
                 return True
+        print "\nNo existe ese miembro en el comite\n"
         return False
 
+    def crear_articulo(self):
+	  
+       """ Metodo : crear_articulo
+      Parametros : self 
+      Descripcion; pide al usuario los datos necesarios para crear
+             los articulos que quieren ser presentados en el CLEI
+       """
+       titulo = raw_input('Titulo del Articulo: ')
+       palabras_claves = []
+       palabra1 = raw_input('Palabra Clave: ')
+       palabras_claves.append(palabra1)
+       while True:
+		 try:
+		   mas_palabras = int(raw_input("desea agregar mas palabras claves? \n1. Si \n2. No\n"))
+		   os.system("clear")
+		   break
+		 except (TypeError, ValueError):
+		   os.system("clear")
+		   print "Error, Debe ingresar un numero, trate de nuevo\n"
+
+       cont = 0
+       while mas_palabras == 1 and cont < 5:
+		 palabra2 = raw_input('Palabra Clave: ')
+		 palabras_claves.append(palabra2)
+		 cont = cont + 1
+		 while True:
+			try:
+			  mas_palabras = int(raw_input("desea agregar mas palabras claves? \n1. Si \n2. No\n"))
+			  os.system("clear")
+			  break
+			except (TypeError, ValueError):
+			  os.system("clear")
+			  print "Error, Debe ingresar un numero, trate de nuevo\n"
+       topico = raw_input('Topico: ')
+       texto =  raw_input('Texto: ')
+       resumen =  raw_input('Resumen: ')
+       
+       while True:
+		#se verifica que el valor de la opcion insertada por el usuario sea un entero
+		try:
+		  ci = int(raw_input('CI del Autor: '))
+		  break
+		except (TypeError, ValueError):
+		  os.system("clear")
+		  print "Error, Debe ingresar un numero, trate de nuevo\n"
+       nombre = raw_input('Nombre del Autor: ')
+       apellido = raw_input('Apellido del Autor: ')
+       institucion_afiliada= raw_input('Institucion Afiliada del Autor: ')
+       email= raw_input('Email del Autor: ')
+       pais= raw_input('Pais del Autor: ')
+       asistente = False
+       ponente = False
+       autor = True
+       while True:
+		#se verifica que el valor de la opcion insertada por el usuario sea un entero
+		try:
+			cod_postal= int(raw_input('Codigo postal del Autor: '))
+			break
+		except (TypeError, ValueError):
+			os.system("clear")
+			print "Error, Debe ingresar un numero, trate de nuevo\n"
+       url= raw_input('Url del Autor: ')
+       telefono= raw_input('Telefono: ')
+       autor = Asistente(ci, nombre, apellido, institucion_afiliada, email, pais, cod_postal, telefono, ponente, autor, url)
+       if (self.aniadir_articulo(self.id_articulo, titulo, autor, palabras_claves, topico,texto,resumen)):
+           print('Articulo Agregado')
+           self.id_articulo = self.id_articulo + 1
+   
+      
+  
 if __name__=="__main__":
     
-    comite = CLEI()
-    comite.aniadir_miembro(1,"jose","perez","usb","d@g.com","Ven")
-    print comite.miembros_cp[0]
-    #comite.elegir_PresidenteCP()
-    #print comite.miembros_cp[0]
-    comite.aniadir_articulo(1,"titulo","autor",["pal","cla"],"bd","texto","resumen")
-    print comite.lista_articulos[0]
-    
-#    def Crear_Articulo(self):
-#        """ Metodo : Crear_Articulo
-#       Parametros : self 
-#       Descripcion; pide al usuario los datos necesarios para crear
-#              los articulos que quieren ser presentados en el CLEI
-#        """
-#        Titulo = raw_input('Titulo del Articulo: ')
-#        Palabras_Claves = []
-#        Topico = raw_input('Topico: ')
-#        CI = int(raw_input('CI del Autor: '))
-#        Nombre = raw_input('Nombre del Autor: ')
-#        Apellido = raw_input('Apellido del Autor: ')
-#        Institucion_Afiliada= raw_input('Institucion Afiliada del Autor: ')
-#        Email= raw_input('Email del Autor: ')
-#        Pais= raw_input('Pais del Autor: ')
-#        Asistente = False
-#        Ponente = False
-#        Autor = True
-#        Cod_Postal= int(raw_input('Codigo postal del Autor: '))
-#        Url= raw_input('Url del Autor: ')
-#        Telefono= raw_input('Telefono: ')
-#        Autor = Asistente(CI, Nombre, Apellido, Institucion_Afiliada, Email, Pais, Cod_Postal, Telefono, Ponente, Autor, Url)
-#        if (self.Aniadir_Articulo(self.id_articulo, Titulo, Autor, Palabras_Claves, Topic)):
-#            print('Articulo Agregado')
-#            self.id_articulo = self.id_articulo + 1
-#    
+    conferencia = CLEI()
+    #conferencia.aniadir_miembro(1,"jose","perez","usb","d@g.com","Ven")
+    #print conferencia.miembros_cp[0]
+    #conferencia.elegir_PresidenteCP()
+    #print conferencia.miembros_cp[0]
+    #conferencia.aniadir_articulo(1,"titulo","autor",["pal","cla"],"bd","texto","resumen")
+    #print conferencia.lista_articulos[0]
+    ##-----
+    #conferencia.crear_comite()
+    #print "miembros de la conferencia :"
+    #for i in conferencia.miembros_cp:
+	  #print i
+    ##------
+    conferencia.crear_articulo()
+    for i in conferencia.lista_articulos:
+	  print i
+ 
 #    
 #    def Realizar_Votacion(self, cod_articulo, CI_miembro_cp, puntaje):
 #        """ Metodo : Realizar_Votacion
