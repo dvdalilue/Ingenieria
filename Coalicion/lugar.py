@@ -39,7 +39,3 @@ class Lugar(object):
         datos += "\n"
         return datos
 
-#if __name__=="__main__":
-    
-#    l = Lugar("MYS", "Mys-019", 300)
-#    print l
