@@ -45,6 +45,8 @@ class Test_Persona(unittest.TestCase):
                                  "Venezuela", ["bd", "so"] )
     self.miembro_cp1 = MiembroCp(41, "Leonardo", "Martinez","USB","lm@usb.ve",
                                   "Venezuela", ["bd", "so"] )
+    self.ponente = Ponente(20, "Pedro", "Perez", "UC", "pperez@uc.ve",
+                           "Venezuela", 1071, 0, "http://hola2.com")
 
   def test_crear_Persona(self):
     
@@ -133,6 +135,23 @@ class Test_Persona(unittest.TestCase):
     self.miembro_cp.set_presidente()
     self.assertTrue(self.miembro_cp.es_presidente),
     "Falla cambiando presidencia"
+    
+  def test_crear_Ponente(self):
+
+    self.assertEqual(self.ponente.ci, 20), "Falla asignando ci"
+    self.assertEqual(self.ponente.nombre, "Pedro"), "Falla asignando nombre"
+    self.assertEqual(self.ponente.apellido, "Perez"), 
+    "Falla asignando apellido"
+    self.assertEqual(self.ponente.institucion_afiliada, "UC"),
+    "Falla asignando institucion afiliada"
+    self.assertEqual(self.ponente.email, "pperez@uc.ve"),
+    "Falla asignando email"
+    self.assertEqual(self.ponente.pais, "Venezuela"), "Falla asignando pais"
+    self.assertEqual(self.ponente.cod_postal, 1071), 
+    "Falla asignando codigo postal"
+    self.assertEqual(self.ponente.telefono, 0), "Falla asignando telefono"
+    self.assertEqual(self.ponente.url, "http://hola2.com"),
+    "Falla asignando url"    
 
   
 if __name__ == "__main__":

@@ -15,6 +15,7 @@
 #*****************************************************************************
 
 import unittest
+from Articulo import Articulo
 from evento import *
 from lugar import Lugar
 
@@ -41,6 +42,14 @@ class Test_Evento(unittest.TestCase):
                                       self.hora_ini1, self.hora_fin1,self.lugar1,
                                       self.moderador1, "Marlene", "resumen", 
                                       "Clave", "bd")
+
+        self.articulo = Articulo(1,"Titulo1",["Pedro","Perez"],
+                                 ["Palabra","Clave"],["Topico1","Topico2"],
+                                 "Texto","Resumen")
+
+        self.taller = Taller("Taller", self.fecha_ini1, self.fecha_fin1,
+                             self.hora_ini1, self.hora_fin1, self.lugar1,
+                             self.articulo)
         
     def test_crearEvento(self):
         
@@ -95,7 +104,23 @@ class Test_Evento(unittest.TestCase):
         "Falla asignando palabras claves"
         self.assertEqual(self.charla.topico,"bd"), 
         "Falla asignando topico"
-       
+ 
+    def test_crearTaller(self):
+        
+        self.assertEqual(self.taller.nombre,"Taller"),
+        "Falla asignando nombre taller"
+        self.assertEqual(self.taller.fecha_ini,self.fecha_ini1), 
+        "Falla asignando fecha inicio"    
+        self.assertEqual(self.taller.fecha_fin,self.fecha_fin1), 
+        "Falla asignando fecha fin"
+        self.assertEqual(self.taller.hora_ini,self.hora_ini1), 
+        "Falla asignando hora inicio" 
+        self.assertEqual(self.taller.hora_fin,self.hora_fin1), 
+        "Falla asignando hora fin"
+        self.assertEqual(self.taller.lugar,self.lugar1), 
+        "Falla asignando lugar"
+        self.assertEqual(self.taller.articulo, self.articulo),
+        "Falla asignando articulo"
         
 if __name__ == "__main__":
     unittest.main()
