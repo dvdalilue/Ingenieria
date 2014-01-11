@@ -59,7 +59,7 @@ class CLEI(object):
        Descripcion; dado los atributos de un articulo, se crea y se agrega al arreglo
               de articulos
       """
-		#se verifica que no se agreguen dos veces el mismo articulo
+        #se verifica que no se agreguen dos veces el mismo articulo
         for n in self.lista_articulos:
             if n.id_articulo == id_articulo:
                 print('Ya existe este articulo')
@@ -78,78 +78,78 @@ class CLEI(object):
               al arreglo miembros_cp
         """
         while True:
-		  try:
-			var = int(raw_input('desea agregar un miembro al comite? \n1. Si \n2. No\n'))
-			os.system("clear")
-			break
-		  except (TypeError, ValueError):
-			os.system("clear")
-			print "Error, Debe ingresar un numero, trate de nuevo\n"
-		# mietras el usuario quiera agregar miembros al comite, se pediran
+          try:
+            var = int(raw_input('desea agregar un miembro al comite? \n1. Si \n2. No\n'))
+            os.system("clear")
+            break
+          except (TypeError, ValueError):
+            os.system("clear")
+            print "Error, Debe ingresar un numero, trate de nuevo\n"
+        # mietras el usuario quiera agregar miembros al comite, se pediran
         # los datos pertienentes para crearlos
         
         while 1 == var:
-		  while True:
-			  try:
-				ci = int(raw_input('introduzca la cedula de identidad: '))
-				i = 0
-				break
-			  except (TypeError, ValueError):
-				os.system("clear")
-				print "Error, Debe ingresar un numero, trate de nuevo\n"
-		  
+          while True:
+              try:
+                ci = int(raw_input('introduzca la cedula de identidad: '))
+                i = 0
+                break
+              except (TypeError, ValueError):
+                os.system("clear")
+                print "Error, Debe ingresar un numero, trate de nuevo\n"
+          
             # se espera que el usuario coloque un CI que no exista en el sistema
-		  while(i < len(self.miembros_cp)):
-			if ci == self.miembros_cp[i].ci:
-			  while True:
-				os.system("clear")
-				#se verifica que el valor de la opcion insertada por el usuario sea un entero
-				try:
-				  ci = int(raw_input('esta cedula de identidad ya esta registrada\nintroduzca la cedula de identidad: '))
-				  i = 0
-				  break
-				except (TypeError, ValueError):
-				  os.system("clear")
-				  print "Error, Debe ingresar un numero, trate de nuevo\n"
-			else:
-			  i = i + 1
-		  nombre = raw_input('Nombre: ')
-		  apellido = raw_input('Apellido: ')
-		  institucion_afiliada = raw_input('Institucion Afiliada: ')
-		  email = raw_input('Email: ')
-		  pais = raw_input('Pais: ')
-		  experticia = []
+          while(i < len(self.miembros_cp)):
+            if ci == self.miembros_cp[i].ci:
+              while True:
+                os.system("clear")
+                #se verifica que el valor de la opcion insertada por el usuario sea un entero
+                try:
+                  ci = int(raw_input('esta cedula de identidad ya esta registrada\nintroduzca la cedula de identidad: '))
+                  i = 0
+                  break
+                except (TypeError, ValueError):
+                  os.system("clear")
+                  print "Error, Debe ingresar un numero, trate de nuevo\n"
+            else:
+              i = i + 1
+          nombre = raw_input('Nombre: ')
+          apellido = raw_input('Apellido: ')
+          institucion_afiliada = raw_input('Institucion Afiliada: ')
+          email = raw_input('Email: ')
+          pais = raw_input('Pais: ')
+          experticia = []
             
-		  while True:
-			  try:
-				var1 = int(raw_input("desea agregar un tema de experiencia? \n1. Si \n2. No\n"))
-				os.system("clear")
-				break
-			  except (TypeError, ValueError):
-				os.system("clear")
-				print "Error, Debe ingresar un numero, trate de nuevo\n"
-			
-		  while(var1 == 1):
-			experticia.append(raw_input("Topico: "))
-			while True:
-			  try:
-				 var1 = int(raw_input("desea agregar un nuevo tema de experiencia? \n1. Si \n2. No\n"))
-				 os.system("clear")
-				 break
-			  except (TypeError, ValueError):
-				os.system("clear")
-				print "Error, Debe ingresar un numero, trate de nuevo\n"
-		  if (self.aniadir_miembro(ci, nombre, apellido, institucion_afiliada, email, pais, experticia)):
-			print('Miembro agregado')
+          while True:
+              try:
+                var1 = int(raw_input("desea agregar un tema de experiencia? \n1. Si \n2. No\n"))
+                os.system("clear")
+                break
+              except (TypeError, ValueError):
+                os.system("clear")
+                print "Error, Debe ingresar un numero, trate de nuevo\n"
+            
+          while(var1 == 1):
+            experticia.append(raw_input("Topico: "))
+            while True:
+              try:
+                 var1 = int(raw_input("desea agregar un nuevo tema de experiencia? \n1. Si \n2. No\n"))
+                 os.system("clear")
+                 break
+              except (TypeError, ValueError):
+                os.system("clear")
+                print "Error, Debe ingresar un numero, trate de nuevo\n"
+          if (self.aniadir_miembro(ci, nombre, apellido, institucion_afiliada, email, pais, experticia)):
+            print('Miembro agregado')
                 
-		  while True:
-			try:
-			  var = int(raw_input("desea agregar un miembro al comite? \n1. Si \n2. No\n"))
-			  os.system("clear")
-			  break
-			except (TypeError, ValueError):
-			  os.system("clear")
-			  print "Error, Debe ingresar un numero, trate de nuevo\n"
+          while True:
+            try:
+              var = int(raw_input("desea agregar un miembro al comite? \n1. Si \n2. No\n"))
+              os.system("clear")
+              break
+            except (TypeError, ValueError):
+              os.system("clear")
+              print "Error, Debe ingresar un numero, trate de nuevo\n"
         return self.miembros_cp
     
     def elegir_PresidenteCP(self):
@@ -162,12 +162,12 @@ class CLEI(object):
                 print ('Lo siento, ya existe un presidente')
                 return False
         while True:
-		  try:
-			id_miembro_cp = int(raw_input('introduzca la cedula de identidad del miembro que eligio de presidente: '))
-			break
-		  except (TypeError, ValueError):
-			os.system("clear")
-			print "Error, Debe ingresar un numero, trate de nuevo\n"
+          try:
+            id_miembro_cp = int(raw_input('introduzca la cedula de identidad del miembro que eligio de presidente: '))
+            break
+          except (TypeError, ValueError):
+            os.system("clear")
+            print "Error, Debe ingresar un numero, trate de nuevo\n"
         
         # se espera que el usuario coloque un CI que no exista en el sistema
         for i in self.miembros_cp:
@@ -179,7 +179,7 @@ class CLEI(object):
         return False
 
     def crear_articulo(self):
-		  
+
         """ Metodo : crear_articulo
         Parametros : self 
         Descripcion; pide al usuario los datos necesarios para crear
@@ -216,7 +216,8 @@ class CLEI(object):
         resumen =  raw_input('Resumen: ')
        
         while True:
-		#se verifica que el valor de la opcion insertada por el usuario sea un entero
+
+        #se verifica que el valor de la opcion insertada por el usuario sea un entero
             try:
                 ci = int(raw_input('CI del Autor: '))
                 break
@@ -312,10 +313,10 @@ class CLEI(object):
                return admitidos
                
        return admitidos
-	
+    
     def filtrar_empatados(self, N):
-	  """ Metodo : filtrar_empatados
-	  Parametros : self 
+      """ Metodo : filtrar_empatados
+      Parametros : self 
              int n 
       Descripcion; dado n, el max de articulos admitidos por el CLEI, se
              se filtran los articulo de Lista_Articulos, para elegir
@@ -323,11 +324,11 @@ class CLEI(object):
              a ser admitidos y estaban empatados y cabian todos
              en esa lista, son los que pertencen a la lista empatados
        """
-	  
-	  empatados=[]
-	  a = self.filtrar_admitidos(N)
-	  #si la lista de admitidos no se lleno, generamos la de empatados
-	  if len(a) != N:
+      
+      empatados=[]
+      a = self.filtrar_admitidos(N)
+      #si la lista de admitidos no se lleno, generamos la de empatados
+      if len(a) != N:
                      
            # se colocan en Lista Ordenada , los articulos aceptables de mayor
            # a menor puntaje
@@ -337,14 +338,15 @@ class CLEI(object):
            no_admitidos= lista_ordenada[len(a):len(lista_ordenada)]
            #buscamos el promedio del primero que estaba empatado
            if len(a) < len(lista_ordenada):
-			 indice = lista_ordenada[len(a)].puntaje_promedio
-			 #todos los articulos en la lista de no admitidos con este indice
-			 # lo agregamos a la lista de empatados
-			 for i in no_admitidos:
-			   if i.puntaje_promedio == indice:
-				 empatados.append(i)
-	  return [a,empatados]
-	
+
+             indice = lista_ordenada[len(a)].puntaje_promedio
+             #todos los articulos en la lista de no admitidos con este indice
+             # lo agregamos a la lista de empatados
+             for i in no_admitidos:
+               if i.puntaje_promedio == indice:
+                 empatados.append(i)
+      return [a,empatados]
+
     def generar_listas(self, num):
        """ Metodo : generar_listas
       Parametros : self 
@@ -358,13 +360,15 @@ class CLEI(object):
            print('Lista de Articulos Admitidos:')
            if len(q[0]) != 0: 
              for i in q[0]:
-       	         print 'id_articulo:', str(i.id_articulo) , ',' , ' Titulo:' ,  i.titulo, ',' ,' Topico:',i.topico
+
+                    print 'id_articulo:', str(i.id_articulo) , ',' , ' Titulo:' ,  i.titulo, ',' ,' Topico:',i.topico
            l = []
            print('\nLista de Articulos Empatados: ')
            if len(q[1]) != 0: 
               for i in q[1]:
-				print 'id_articulo:'+ str(i.id_articulo) +','+ ' Titulo:'+  i.titulo+',' +' Topico:'+i.topico
-				return True
+
+                print 'id_articulo:'+ str(i.id_articulo) +','+ ' Titulo:'+  i.titulo+',' +' Topico:'+i.topico
+                return True
            else:
               return False
          
@@ -382,11 +386,11 @@ if __name__=="__main__":
     #conferencia.crear_comite()
     #print "miembros de la conferencia :"
     #for i in conferencia.miembros_cp:
-	  #print i
+      #print i
     ##------
     #conferencia.crear_articulo()
     #for i in conferencia.lista_articulos:
-	  #print i
-	##.------------------------
+      #print i
+    ##.------------------------
 
          
