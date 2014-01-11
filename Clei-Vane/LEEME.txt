@@ -1,0 +1,43 @@
+/**************************************************************
+Tarea 2
+Ingenieria de Software
+Autores: 
+	      - Vanessa Rivas . #  carnet: 10-10608
+	      - Gabriel Russo   #  carnet  08-11021
+
+Realizado en Eclipse con Pydev
+***************************************************************/
+Persona.py , Articulo.py , Topico.py , CLEI.py, main.py y Probar_Clases.py
+
+En esta tarea se implemento parte del sistema de la Conferencia 
+Latinoamericana de Informática CLEI.
+Utilizando métodos de programacion extrema y pruebas unitarias (TDD)
+se lograron implementar las siguientes funcionalidades:
+
+    -Crear artículos;
+    -Crear los miembros del comité de programas y su presidente;
+    -Asociar las puntuaciones de los árbitros a los artículos y calcular los promedios
+      correspondientes;
+    - Dado el número de artículos ‘n’ que pueden escogerse, el sistema crea dos
+      listas:
+	  * Una lista de ACEPTADOS de a lo sumo los ‘n’ artículos aceptables con
+	      los promedios más altos. Ningún artículo de esta lista puede tener el
+	      mismo promedio que un artículo aceptable que no esté en la lista.
+	  * Una lista de EMPATADOS correspondientes a aquellos artículos
+	    aceptables empatados en el mayor promedio fuera de ACEPTADOS.
+
+
+ Uso: 
+ - Para interacturar con el sistema solo se debe colocar en la consola
+    >>python main.py
+- Si se desea ver los resultados de las pruebas unitarias 
+    >>python Probar_Clases.py
+
+o si se encuentran en Eclipse, se debe configurar la consola para poder trabajar configurar
+"raw_imput" y corren run normal en main.py o run con unittest en Probar_Clases.py 
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
