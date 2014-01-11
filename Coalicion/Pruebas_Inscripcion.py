@@ -36,7 +36,7 @@ class Test_inscripcion(unittest.TestCase):
         self.inscripcion2 = Inscripcion(self.asistente2,self.fecha_inscripcion,
                                         130.00 )
  
-    def test_crear_lugar(self):
+    def test_crear_inscripcion(self):
         self.assertEqual(self.inscripcion1.asistente, self.asistente1), 
         "Falla asignando asistente"
         self.assertEqual(self.inscripcion1.fecha_inscripcion, 

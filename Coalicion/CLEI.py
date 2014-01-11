@@ -312,8 +312,63 @@ class CLEI(object):
                return admitidos
                
        return admitidos
-
-  
+	
+    def filtrar_empatados(self, N):
+	  """ Metodo : filtrar_empatados
+	  Parametros : self 
+             int n 
+      Descripcion; dado n, el max de articulos admitidos por el CLEI, se
+             se filtran los articulo de Lista_Articulos, para elegir
+             aquellos con mejores puntuaciones, los que quedaban eran candidatos
+             a ser admitidos y estaban empatados y cabian todos
+             en esa lista, son los que pertencen a la lista empatados
+       """
+	  
+	  empatados=[]
+	  a = self.filtrar_admitidos(N)
+	  #si la lista de admitidos no se lleno, generamos la de empatados
+	  if len(a) != N:
+                     
+           # se colocan en Lista Ordenada , los articulos aceptables de mayor
+           # a menor puntaje
+           lista_ordenada = self.ordenar_articulos()
+           # colocamos en una lista el resto de articulos que no fueron admitidos todavia
+           # (articulos luego del ultimo que fue a la lista de admitidos)
+           no_admitidos= lista_ordenada[len(a):len(lista_ordenada)]
+           #buscamos el promedio del primero que estaba empatado
+           if len(a) < len(lista_ordenada):
+			 indice = lista_ordenada[len(a)].puntaje_promedio
+			 #todos los articulos en la lista de no admitidos con este indice
+			 # lo agregamos a la lista de empatados
+			 for i in no_admitidos:
+			   if i.puntaje_promedio == indice:
+				 empatados.append(i)
+	  return [a,empatados]
+	
+    def generar_listas(self, num):
+       """ Metodo : generar_listas
+      Parametros : self 
+             int n 
+      Descripcion; dado n, el max de articulos admitidos por el CLEI, se
+             generan la lista de articulos admitidos y empatados
+       """
+       if num >= 0:
+           q = self.filtrar_empatados(num)
+           l = []
+           print('Lista de Articulos Admitidos:')
+           if len(q[0]) != 0: 
+             for i in q[0]:
+       	         print 'id_articulo:', str(i.id_articulo) , ',' , ' Titulo:' ,  i.titulo, ',' ,' Topico:',i.topico
+           l = []
+           print('\nLista de Articulos Empatados: ')
+           if len(q[1]) != 0: 
+              for i in q[1]:
+				print 'id_articulo:'+ str(i.id_articulo) +','+ ' Titulo:'+  i.titulo+',' +' Topico:'+i.topico
+				return True
+           else:
+              return False
+         
+       
 if __name__=="__main__":
     
     conferencia = CLEI()
@@ -333,69 +388,5 @@ if __name__=="__main__":
     #for i in conferencia.lista_articulos:
 	  #print i
 	##.------------------------
-   
 
-#    
-#     
-#     
-#    def Filtrar_empatados(self, N):
-#        """ Metodo : Filtrar_empatados
-#       Parametros : self 
-#              int n 
-#       Descripcion; dado n, el max de articulos admitidos por el CLEI, se
-#              se filtran los articulo de Lista_Articulos, para elegir
-#              aquellos con mejores puntuaciones, los que quedaban eran candidatos
-#              a ser admitidos y estaban empatados y cabian todos
-#              en esa lista, son los que pertencen a la lista empatados
-#        """
-#        empatados=[]
-#        
-#        a = self.Filtrar_admitidos(N)
-#        #si la lista de admitidos no se lleno, generamos la de empatados
-# 
-#        if len(a) != N:
-#                      
-#            # se colocan en Lista Ordenada , los articulos aceptables de mayor
-#            # a menor puntaje
-#            Lista_Ordenada = self.Ordenar_Articulos()
-#            # colocamos en una lista el resto de articulos que no fueron admitidos todavia
-#            # (articulos luego del ultimo que fue a la lista de admitidos)
-#            No_admitidos= Lista_Ordenada[len(a):len(Lista_Ordenada)]
-#            #buscamos el promedio del primero que estaba empatado
-#            if len(a) < len(Lista_Ordenada):
-#        	indice = Lista_Ordenada[len(a)].Puntaje_promedio
-#        	#todos los articulos en la lista de no admitidos con este indice
-#        	# lo agregamos a la lista de empatados
-#        	for i in No_admitidos:
-#        	    if i.Puntaje_promedio == indice:
-#        		empatados.append(i)
-#        return [a,empatados]        
-#        
-#        
-#    
-#    def Generar_Listas(self, num):
-#        """ Metodo : Generar_Listas
-#       Parametros : self 
-#              int n 
-#       Descripcion; dado n, el max de articulos admitidos por el CLEI, se
-#              generan la lista de articulos admitidos y empatados
-#        """
-#        if num >= 0:
-#            q = self.Filtrar_empatados(num)
- #           l = []
- #           print('Lista de Articulos Admitidos:')
- #           if len(q[0]) != 0: 
- #             for i in q[0]:
- #       	    print 'id_articulo:', str(i.id_articulo) , ',' , ' Titulo:' ,  i.Titulo, ',' ,' Topico:',i.Topico.Nombre
- #       
- #           l = []
- #           print('\nLista de Articulos Empatados: ')
- #           if len(q[1]) != 0: 
- #             for i in q[1]:
- #       	    print('id_articulo:'+ str(i.id_articulo) +','+ ' Titulo:'+  i.Titulo+',' +' Topico:'+i.Topico.Nombre)
- #         
- #           return True
- #       else:
- #           return False
- #         
          
