@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h2>Participantes</h2>
+{{block.super}}
 
 {% if latest_p_list %}
     <ul>
+
+      <h2>Participantes:</h2>
     {% for p in latest_p_list %}
-        <li><a href="/participante/{{ p.id }}/">{{ p.name }}</a></li>
+      <li><a href="/participante/{{ p.id }}/">{{ p.name }}</a></li>
     {% endfor %}
     </ul>
+
+    <a href="/participante/create">Agregar Participante</a>
 {% else %}
     <p>No participante are available.</p>
 {% endif %}

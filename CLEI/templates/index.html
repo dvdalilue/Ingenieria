@@ -10,7 +10,8 @@
     <div id="sidebar">
         {% block sidebar %}
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/participante">Ver Participantes</a></li>
+            <li><a href="/participante/create">Agregar Participante</a></li>
         </ul>
         {% endblock %}
     </div>
@@ -19,8 +20,4 @@
         {% block content %}<p>Sistema Automatizado del CLEI</p>{% endblock %}
     </div>
 </body>
-<form>
-  <input type="button" VALUE="Atras" onClick="history.go(-1);return
-        true;">
-</form>
 </html>

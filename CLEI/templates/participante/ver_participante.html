@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{{ block.super }}
 	{{ object }}
 	<p>Name: {{ object.name }}</p>
 	<p>Document Id: {{ object.id_document }}</p>
