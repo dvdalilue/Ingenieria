@@ -1,19 +1,29 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
 {% block content %}
-{{block.super}}
-
+<h3>Participantes:</h3>
 {% if latest_p_list %}
-    <ul>
-
-      <h2>Participantes:</h2>
+<ul>
+  <ul>
     {% for p in latest_p_list %}
-      <li><a href="/participante/{{ p.id }}/">{{ p.name }}</a></li>
+    <li><a href="/participante/ver/{{ p.id }}/">{{ p.name }}</a></li>
     {% endfor %}
-    </ul>
-
-    <a href="/participante/create">Agregar Participante</a>
+  </ul>
+</ul>
 {% else %}
-    <p>No participante are available.</p>
+<li>
+  <p>No existen participantes.</p>
+</li>
 {% endif %}
-{% endblock content %}
+
+<form>
+  <input type="button" VALUE="Agregar Participante" onClick="window.location.href='create'">
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los participantes del CLEI</p>
+</li>
+{% endblock %}

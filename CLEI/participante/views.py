@@ -28,9 +28,6 @@ def detail(request, participante_id):
         raise Http404
     return render_to_response('participante/detail.html', {'participante': p})
 
-def results(request, participante_id):
-    return HttpResponse("You're looking at the results of p %s." % participante_id)
-
 class CreateParticipanteView(CreateView):
 	model = Participante
 	form_class = ParticipanteForm

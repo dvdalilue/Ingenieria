@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Eventos:</h3>
+{% if event_list %}
+<ul>
+  <ul>
+    {% for e in event_list %}
+    <li><a href="/evento/ver/{{ e.id }}/">{{ e.nombre_evento }}</a></li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen eventos.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Crear Evento" onClick="window.location.href='create'">
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los eventos del CLEI</p>
+</li>
+{% endblock %}

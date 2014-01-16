@@ -1,10 +1,10 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h3>{{ object.name }}</h3>
+<h3>{{ object.nombre_evento }}</h3>
 <ul>
-  <li>Name: {{ object.name }}</li>
-  <li>Document Id: {{ object.id_document }}</li>
+  <li>Name: {{ object.nombre_evento }}</li>
+  <li>Tipo: {{ object.tipo_evento }}</li>
 </ul>
 
 <form>
@@ -15,6 +15,6 @@
 
 {% block sidebar %}
 <li>
-  <p>Datos del participante</p>
+  <p>Datos del evento</p>
 </li>
 {% endblock %}

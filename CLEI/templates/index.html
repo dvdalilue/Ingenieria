@@ -1,23 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <link rel="stylesheet" href="style.css" />
-    <title>{% block title %}Sistema del CLEI{% endblock %}</title>
-</head>
+  <head>
+    {% load staticfiles %}
 
-<body>
-  <h1>CLEI</h1>
-    <div id="sidebar">
-        {% block sidebar %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>{% block title %}Sistema del CLEI{% endblock %}</title>
+  </head>
+
+  <body>
+    <div class="page-container">
+      <div class="header">
+        <h1>CLEI</h1>
+      </div>
+
+      <div class="nav">
         <ul>
-            <li><a href="/participante">Ver Participantes</a></li>
-            <li><a href="/participante/create">Agregar Participante</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Participante</a>
+            <ul>
+              <li>
+                <a href="/participante">Listar
+                  Participantes</a>
+              </li>
+              <li>
+                <a href="/participante/create">Agregar
+                  Participante</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Evento</a>
+            <ul>
+              <li>
+                <a href="/evento">Listar
+                  Eventos</a>
+              </li>
+              <li>
+                <a href="/evento/create">Agregar
+                  Evento</a>
+              </li>
+            </ul>
+          </li>
         </ul>
-        {% endblock %}
+      </div>
+      <!-- /nav -->
+
+      <div class="container">
+        <div class="container-body">
+          {% block content %}
+          <h3>Bienvenido</h3>
+          <h3>CLEI</h3>
+          {% endblock %}
+        </div>
+
+        <div class="sidebar">
+          <ul>
+            <li>Descripcion:</li>
+            {% block sidebar %}
+            <li>
+              <p>Sistema Automatizado del CLEI</p>
+            </li>
+            {% endblock %}
+          </ul>
+        </div>
+      </div>
     </div>
-    <div id="content">
-      <h2>Descripcion:</h2>
-        {% block content %}<p>Sistema Automatizado del CLEI</p>{% endblock %}
-    </div>
-</body>
+
+    <footer class="page-container">
+      <div class="footer">
+        <p>
+          <b>Universidad Simón Bolívar Copyright © 2014</b>
+        </p>
+        <p>
+          <b>Software diseñado por estudiantes de Computacion.</b>
+        </p>
+      </div>
+    </footer>      
+  </body>
 </html>
