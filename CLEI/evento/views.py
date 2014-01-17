@@ -15,10 +15,10 @@ from models import Evento
 
 def index(request):
     event_list = Evento.objects.all().order_by('nombre_evento')[:5]
-    t = loader.get_template('evento/index.html')
-    c = Context({
-        'event_list': event_list,
-    })
+   # t = loader.get_template('evento/index.html')
+   # c = Context({
+   #     'event_list': event_list,
+   # })
     #return HttpResponse(t.render(c))
     return render_to_response('evento/index.html', {'event_list': event_list})
 
