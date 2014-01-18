@@ -8,7 +8,7 @@ class Evento(models.Model):
     SESION = 'SE'
     TALLER = 'TL'
     TIPO_EVENTO_CHOICES = (
-        (EVENTO, 'EVENTO'),
+        (EVENTO, 'Evento Social'),
         (CHARLA, 'Charla Invitada'),
         (SESION, 'Sesion de Ponencias'),
         (TALLER, 'Taller'),

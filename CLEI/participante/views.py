@@ -9,11 +9,10 @@ from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
 
-from forms import ParticipanteForm
-from models import Participante
+from forms import ParticipanteForm, InscripcionForm
 
 def index(request):
-    latest_p_list = Participante.objects.all().order_by('id_document')[:5]
+    latest_p_list = Participante.objects.all().order_by('name')
     t = loader.get_template('participante/index.html')
     c = Context({
         'latest_p_list': latest_p_list,
@@ -39,6 +38,27 @@ class CreateParticipanteView(CreateView):
 
 	def get_success_url(self):
 		return reverse('ver_participante',args=[self.object.id])
+
+class CreateInscripcionView(CreateView):
+    model = Inscripcion
+    form_class = InscripcionForm
+    template_name = "participante/create_inscripcion.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(CreateInscripcionView, self).get_context_data(*args, **kwargs)
+        return context
+
+    def get_success_url(self):
+        return reverse('listar_participante')
+
+def inscritos(request):
+    i_list = Inscripcion.objects.all().order_by('id')
+    #t = loader.get_template('participante/index.html')
+    c = Context({
+        'i_list': i_list,
+    })
+    #return HttpResponse(t.render(c))
+    return render_to_response('participante/ver_inscritos.html', {'i_list': i_list})
 
 class VerParticipanteView(DetailView):
 	model = Participante

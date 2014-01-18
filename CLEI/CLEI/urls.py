@@ -16,6 +16,8 @@ urlpatterns = patterns('',
 
     url(r'^evento/', include('evento.urls')),
 
+    url(r'^articulo/',include('articulo.urls')),
+
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/images/favicon.ico'}),

@@ -14,7 +14,7 @@ from models import Evento
 
 
 def index(request):
-    event_list = Evento.objects.all().order_by('nombre_evento')[:5]
+    event_list = Evento.objects.all().order_by('nombre_evento')
     t = loader.get_template('evento/index.html')
     c = Context({
         'event_list': event_list,
