@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ object.name }}</h3>
+<ul>
+  <li>Nombre: {{ object.nombre }}</li>
+  <li>Apellido: {{ object.apellido }}</li>
+  <li>Institucion: {{ object.institucion_afiliada }}</li>
+  <li>Email: {{ object.email }}</li>
+  <li>Pais: {{ object.pais }}</li>
+</ul>
+
+<form>
+  <input type="button" VALUE="Atras" onClick="history.go(-1);return
+        true;">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos de Miembro Comite Programa</p>
+</li>
+{% endblock %}

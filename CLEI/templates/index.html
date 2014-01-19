@@ -4,57 +4,103 @@
     {% load staticfiles %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="icon" type="image/ico" href="{% static 'images/favicon_manzana.ico' %}" />
     <title>{% block title %}Sistema del CLEI{% endblock %}</title>
   </head>
 
   <body>
-    <div class="page-container">
-      <div class="header">
-        <h1>CLEI</h1>
-      </div>
-
-      <div class="nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Participante</a>
+    <div class="header">
+      <div class="navbar-inner">
+        <div class="navbar">
+    	  <div class="nav">
+      	    <a href="http://clei.org/">
+              <img src="/static/clei.png">
+       	      <h1>CLEI</h1>
+      	    </a>
+    	  </div>
+          <div class="nav">
             <ul>
-              <li>
-                <a href="/participante">Listar
-                  Participantes</a>
-              </li>
-              <li>
-                <a href="/participante/create">Agregar
-                  Participante</a>
-              </li>
-              <li><a href="#">Inscritos</a>
+              <li><a href="/">Home</a></li>
+            </ul>
+          </div>
+          <div class="nav">
+            <ul>
+              <li><a href="#">Participante</a>
                 <ul>
                   <li>
-                    <a href="/participante/ver_inscritos">Listar
-                      Inscritos</a>
+                    <a href="/participante">Listar
+                      Participantes</a>
                   </li>
                   <li>
-                    <a href="/participante/create_inscripcion">Inscribir
+                    <a href="/participante/create">Agregar
                       Participante</a>
                   </li>
+                  <li><a href="#">Inscritos</a>
+                    <ul>
+                      <li>
+                        <a href="/participante/ver_inscritos">Listar
+                          Inscritos</a>
+                      </li>
+                      <li>
+                        <a href="/participante/create_inscripcion">Inscribir
+                          Participante</a>
+                      </li>
+                    </ul>
+                  </li>	
                 </ul>
+              </li>
             </ul>
-          </li>
-          <li><a href="#">Evento</a>
+          </div>
+          <div class="nav">
             <ul>
-              <li>
-                <a href="/evento">Listar
-                  Eventos</a>
-              </li>
-              <li>
-                <a href="/evento/create">Agregar
-                  Evento</a>
+              <li><a href="#">Evento</a>
+                <ul>
+                  <li>
+                    <a href="/evento">Listar
+                      Eventos</a>
+                  </li>
+                  <li>
+                    <a href="/evento/create">Agregar
+                      Evento</a>
+                  </li>
+                </ul>
               </li>
             </ul>
-          </li>
-        </ul>
+          </div>
+          <div class="nav">
+            <ul>
+              <li><a href="#">Miembro del Comite</a>
+                <ul>
+                  <li>
+                    <a href="/miembro_cp">Listar
+                      Miembros Comite Programas</a>
+                  </li>
+                  <li>
+                    <a href="/miembro_cp/create">Agregar
+                      Miembro Comite Programa</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav">
+            <ul>
+              <li><a href="#">Articulo</a>
+                <ul>
+                  <li>
+                    <a href="/articulo/calificar_articulo">Calificar 
+                      Articulo</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <!-- /nav -->
-
+    </div>
+    <hr>
+    <div class="page-container">
       <div class="container">
         <div class="container-body">
           {% block content %}

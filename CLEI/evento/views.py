@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, render
 from django.template import Context, loader
 from django.http import HttpResponse, Http404
 from evento.models import Evento
@@ -15,11 +15,6 @@ from models import Evento
 
 def index(request):
     event_list = Evento.objects.all().order_by('nombre_evento')
-    t = loader.get_template('evento/index.html')
-    c = Context({
-        'event_list': event_list,
-    })
-    #return HttpResponse(t.render(c))
     return render_to_response('evento/index.html', {'event_list': event_list})
 
 def details(request, evento_id):

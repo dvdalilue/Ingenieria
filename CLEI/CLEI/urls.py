@@ -1,4 +1,3 @@
-#from django.conf.urls import *
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
@@ -20,8 +19,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/images/favicon.ico'}),
-    url(r'^favicon\.ico$', RedirectView.as_view(url='/images/favicon.ico')),
     # Examples:
     # url(r'^$', '{{ project_name }}.views.home', name='home'),
     # url(r'^{{ project_name }}/', include('{{ project_name }}.foo.urls')),

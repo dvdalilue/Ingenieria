@@ -25,6 +25,6 @@ class Calificacion(models.Model):
                                (3,3),
                                (4,4),
                                (5,5))
-    valor = models.IntegerField(choices = CALIFICACIONES__CHOICES, default = 1) 
+    articulo = models.ForeignKey(Articulo, related_name = "calificacion")
     juez = models.ForeignKey(Miembro_CP, related_name = "jurado")
-    Articulo = models.ForeignKey(Articulo, related_name = "calificacion")
+    puntuacion = models.IntegerField(choices = CALIFICACIONES__CHOICES, default = 1)

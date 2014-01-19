@@ -1,7 +1,0 @@
-  <legend>Calificar</legend>
-  <label for="valor">Puntaje</label>
-  <input id="valor" placeholder="Puntaje">
-  <label for="juez">Jurado</label>
-  <input id="juez" placeholder="Jurado">
-  <label for="articulo">Articulo</label>
-  <input id="articulo" placeholder="Articulo">
