@@ -179,7 +179,7 @@ class CLEI(object):
         return False
 
     def crear_articulo(self):
-          
+
         """ Metodo : crear_articulo
         Parametros : self 
         Descripcion; pide al usuario los datos necesarios para crear
@@ -216,6 +216,7 @@ class CLEI(object):
         resumen =  raw_input('Resumen: ')
        
         while True:
+
         #se verifica que el valor de la opcion insertada por el usuario sea un entero
             try:
                 ci = int(raw_input('CI del Autor: '))
@@ -337,6 +338,7 @@ class CLEI(object):
            no_admitidos= lista_ordenada[len(a):len(lista_ordenada)]
            #buscamos el promedio del primero que estaba empatado
            if len(a) < len(lista_ordenada):
+
              indice = lista_ordenada[len(a)].puntaje_promedio
              #todos los articulos en la lista de no admitidos con este indice
              # lo agregamos a la lista de empatados
@@ -344,7 +346,7 @@ class CLEI(object):
                if i.puntaje_promedio == indice:
                  empatados.append(i)
       return [a,empatados]
-    
+
     def generar_listas(self, num):
        """ Metodo : generar_listas
       Parametros : self 
@@ -358,11 +360,13 @@ class CLEI(object):
            print('Lista de Articulos Admitidos:')
            if len(q[0]) != 0: 
              for i in q[0]:
+
                     print 'id_articulo:', str(i.id_articulo) , ',' , ' Titulo:' ,  i.titulo, ',' ,' Topico:',i.topico
            l = []
            print('\nLista de Articulos Empatados: ')
            if len(q[1]) != 0: 
               for i in q[1]:
+
                 print 'id_articulo:'+ str(i.id_articulo) +','+ ' Titulo:'+  i.titulo+',' +' Topico:'+i.topico
                 return True
            else:
