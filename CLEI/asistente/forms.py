@@ -1,5 +1,5 @@
 from django           import forms
-from asistente.models import Asistencia, Descuento, Asistente, Inscripcion
+from asistente.models import Asistencia, Descuento, Asistente, Inscrito
 
 class AsistenciaForm(forms.ModelForm):
     class Meta:
@@ -23,6 +23,7 @@ class AsistenteForm(forms.ModelForm):
         self.fields["descuento"].help_text = ""
         self.fields["descuento"].queryset = Descuento.objects.all()
 
-class InscripcionForm(forms.ModelForm):
+class InscritoForm(forms.ModelForm):
     class Meta:
-        model = Inscripcion
+        model   = Inscrito
+        exclude = ['inscrito']

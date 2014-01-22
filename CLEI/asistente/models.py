@@ -27,7 +27,7 @@ class Asistente(models.Model):
     def __str__(self):
         return self.info
 
-class Inscripcion(models.Model):
+class Inscrito(models.Model):
     created  = models.DateTimeField(default=datetime.now)
     monto    = models.IntegerField()
     inscrito = models.ForeignKey(Asistente, related_name="asistente")

@@ -3,16 +3,14 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = patterns('asistente.views',
-    url(r'^$', 'index',
-        name = 'listar_articulos'),
-    url(r'^ver_inscritos$',
-        'inscritos'),
-    url(r'^crear_asistente/$',
-        'crear_asistente'),
+    url(r'^inscritos$',
+        'asistente_inscritos'),
+    url(r'^inscribir/$',
+        'asistente_inscribir'),
 )
 
 urlpatterns += patterns('',
-    url(r'^crear_asistente/success/$',
-        TemplateView.as_view(template_name="asistente/succ_asistente.html"), 
-        name='success'),
+    url(r'^inscribir/exito/$',
+        TemplateView.as_view(template_name="asistente/inscribir_exito.html"), 
+        name='exito'),
 )
