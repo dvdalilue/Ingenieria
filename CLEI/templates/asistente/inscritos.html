@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Inscritos:</h3>
+{% if inscritos_list %}
+<ul>
+  <ul>
+    {% for i in inscritos_list %}
+    <li>{{ i }}</li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen inscritos.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Inscribir Participante" onClick="window.location.href='create_inscripcion'">
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los inscritos del CLEI</p>
+</li>
+{% endblock %}

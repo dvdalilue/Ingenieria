@@ -2,6 +2,10 @@ a {
   	text-decoration: none;
 }
 
+a:hover {
+ 	cursor:all-scroll;
+}
+
 body {
 	margin: 0px;  	
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -26,10 +30,6 @@ body {
 
 .header a {
 	color:#ffffff;
-}
-
-.header a:hover {
-	color:#669999;
 }
 
 .header h1{
@@ -201,11 +201,7 @@ body hr {
 	padding:0 20px 20px 20px;
 }
 
-.container-body form {
-	display: block;
-}
-
-.container-body form h1 {
+.container-body h3 {
     display: block;
     width: 100%;
     padding: 0.3em 0;
@@ -213,6 +209,16 @@ body hr {
     font-size: 125%;
     color: #333;
     border-bottom: 1px solid #e5e5e5;
+}
+
+.container-body li p {
+	font-size:20px;
+	margin-top: 30px;
+	padding-left: 20px;
+}
+
+.container-body form {
+	display: block;
 }
 
 .container-body form p {
@@ -226,7 +232,7 @@ body hr {
 	padding:5px;
 	position:absolute;
 }
-
+.container-body form p textarea,
 .container-body form p input {
 	margin-top:35px;
 	padding: 0.5em 0.6em;
@@ -249,17 +255,20 @@ body hr {
 	-webkit-writing-mode: horizontal-tb;
 }
 
+.container-body form p textarea:focus,
 .container-body form p input:focus {
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
     border-color: #129FEA;
 }
 
+.container-body form p textarea:focus:invalid,
 .container-body form p input:focus:invalid {
     color: #b94a48;
     border: 1px solid #ee5f5b;
 }
 
+.container-body form p textarea:focus:invalid:focus,
 .container-body form p input:focus:invalid:focus {
     border-color: #e9322d;
 }
@@ -299,7 +308,8 @@ body hr {
     border-color: #e9322d;
 }
 
-.container-body form input[type=submit] {
+.container-body form input[type=submit],
+.container-body form input[type=button]{
 	font-size: 100%;
 	padding: .5em 1.5em;
 	color: #fff;
@@ -316,11 +326,18 @@ body hr {
 	transition: .1s linear box-shadow;
 }
 
-.errorlist {
+.container-body form ul {
 	list-style:none;
+	margin-top:45px;
+}
+
+.container-body form .errorlist {
+	margin-top:12px;
+}
+
+.errorlist {
 	position:absolute;
 	padding-left:140px;
-	margin-top:12px;
 }
 
 .container .sidebar {
@@ -376,3 +393,7 @@ body hr {
 }
 
 .footer p {margin: 0px; padding: 3px; text-align: center; line-height: 1.3em; font-size: 90%;}
+
+footer.page-container {
+	margin-bottom: 10px;
+}

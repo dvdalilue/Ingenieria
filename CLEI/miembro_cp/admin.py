@@ -1,6 +1,6 @@
-from django.contrib import admin
+from django.contrib    import admin
+from miembro_cp.models import Miembro_CP, Experticia, Calificacion
 
-from models import Miembro_CP, Experticia
-
-admin.site.register(Miembro_CP)
-admin.site.register(Experticia)
+admin.site.register(Miembro_CP  )
+admin.site.register(Experticia  )
+admin.site.register(Calificacion)

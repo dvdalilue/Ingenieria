@@ -1,37 +1,59 @@
+from django.http      import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse, Http404
-from django.http import HttpResponseRedirect
-from articulo.forms import CalificacionForm
-from django.views.generic.edit import CreateView, FormView
-from django.views.generic.detail import DetailView
 
-from articulo.models import Articulo, Calificacion
+from articulo.forms   import ArticuloForm
+from articulo.models  import Articulo
+from reportlab.pdfgen import canvas
 
-def calificar(request):
+def articulo_index(request):
+    articulo_lista = Articulo.objects.all().order_by('titulo')
+    return render_to_response('articulo/articulo_index.html', 
+                              {'objeto_lista' : articulo_lista})
+
+def articulo_detalles(request, pk):
+    try:
+        articulo = Articulo.objects.get(pk=pk)
+    except Articulo.DoesNotExist:
+        raise Http404
+
+    return render_to_response('articulo/articulo_detalles.html',
+                              {'objeto' : articulo})
+
+def articulo_agregar(request):
     if request.POST:
-        calificar_form = CalificacionForm(request.POST)
-        if calificar_form.is_valid():
-            calificar_form.save()
-            return HttpResponseRedirect('success')
+        crear_form = ArticuloForm(request.POST)
+        if crear_form.is_valid():
+            crear_form.save()
+            return HttpResponseRedirect('exito')
     else:
-        calificar_form=CalificacionForm()
-    return render(request, 'articulo/calificar.html', {
-        'form': calificar_form,
+        crear_form = ArticuloForm()
+
+    return render(request, 'articulo/articulo_agregar.html', {
+        'form': crear_form,
     })
 
-class CalificacionView(CreateView):
-    model = Calificacion
-    template_name = 'articulo/calificar.html'
-    form_class = CalificacionForm
+def to_pdf(request):
 
-    # def form_valid(self, form):
-    #     # This method is called when valid form data has been POSTed.
-    #     # It should return an HttpResponse.
-    #     return super(CalificacionView, self).form_valid(form)
+    # Create the HttpResponse object with the appropriate PDF headers.
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="download.pdf"'
+    
+    articulo_list = Articulo.objects.all().order_by('titulo')
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(CalificacionView, self).get_context_data(*args, **kwargs)
-        return context
-
-    def get_success_url(self):
-        return reverse('articulo_index',args=[self.object.id])
+    # Create the PDF object, using the response object as its "file."
+    p = canvas.Canvas(response)
+    i = 740
+    # Draw things on the PDF. Here's where the PDF generation happens.
+    # See the ReportLab documentation for the full list of functionality.
+    if articulo_list:
+        for a in articulo_list:
+            if i>=100:
+                p.drawString(100, i, a.titulo)
+            i = i-20
+    else:
+        p.drawString(100, 740, "No hay articulos")
+    
+    # Close the PDF object cleanly, and we're done.
+    p.showPage()
+    p.save()
+    return response

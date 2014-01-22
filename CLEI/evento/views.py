@@ -1,41 +1,81 @@
 from django.shortcuts import render_to_response, render
-from django.template import Context, loader
-from django.http import HttpResponse, Http404
-from evento.models import Evento
+from django.http      import HttpResponse, Http404
 
-from datetime import datetime
-
-from django.core.urlresolvers import reverse
-from django.views.generic.edit import CreateView
+from django.core.urlresolvers    import reverse
+from django.views.generic.edit   import CreateView
 from django.views.generic.detail import DetailView
 
-from forms import EventoForm
-from models import Evento
+from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm, TallerForm
+from models import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia
+from models import Charla, Palabra_Clave_Charla, Taller
 
+def evento_index(request):
+    evento_lista = Evento.objects.all().order_by('nombre')
+    return render_to_response('evento/evento_index.html', 
+                              {'objeto_lista' : evento_lista})
 
-def index(request):
-    event_list = Evento.objects.all().order_by('nombre_evento')
-    return render_to_response('evento/index.html', {'event_list': event_list})
-
-def details(request, evento_id):
+def evento_detalles(request, pk):
     try:
-        e = Evento.objects.get(pk=evento_id)
+        evento = Evento.objects.get(pk=pk)
     except Evento.DoesNotExist:
         raise Http404
-    return render_to_response('evento/details.html', {'evento': e})
 
-class CreateEventoView(CreateView):
-    model = Evento
-    form_class = EventoForm
-    template_name = "evento/create_evento.html"
-    
-    def get_context_data(self, *args, **kwargs):
-        context = super(CreateEventoView, self).get_context_data(*args, **kwargs)
-        return context
-        
-    def get_success_url(self):
-        return reverse('ver_evento',args=[self.object.id])
+    return render_to_response('evento/evento_detalles.html',
+                              {'objeto' : evento})
 
-class VerEventoView(DetailView):
-	model = Evento
-	template_name = "evento/ver_evento.html"
+def evento_sesion_crear(request):
+    if request.POST:
+        sesion_form = Sesion_PonenciaForm(request.POST)
+        evento_form = EventoForm(request.POST)
+        if sesion_form.is_valid() and evento_form.is_valid():
+            new_sesion = sesion_form.save(commit=False)
+            new_evento = evento_form.save()
+            new_sesion.evento_id = new_evento.pk
+            new_sesion.save()
+            return HttpResponseRedirect('exito')
+    else:
+        sesion_form = Sesion_PonenciaForm()
+        evento_form = EventoForm()
+
+    return render(request, 'evento/evento_crear.html', {
+        'form1' : evento_form,
+        'form2' : sesion_form,
+    })
+
+def evento_charla_crear(request):
+    if request.POST:
+        charla_form = CharlaForm(request.POST)
+        evento_form = EventoForm(request.POST)
+        if charla_form.is_valid() and evento_form.is_valid():
+            new_charla = charla_form.save(commit=False)
+            new_evento = evento_form.save()
+            new_charla.evento_id = new_evento.pk
+            new_charla.save()
+            return HttpResponseRedirect('exito')
+    else:
+        charla_form = CharlaForm()
+        evento_form = EventoForm()
+
+    return render(request, 'evento/evento_crear.html', {
+        'form1' : evento_form,
+        'form2' : charla_form,
+    })
+
+def evento_taller_crear(request):
+    if request.POST:
+        taller_form = TallerForm(request.POST)
+        evento_form = EventoForm(request.POST)
+        if taller_form.is_valid() and evento_form.is_valid():
+            new_taller = taller_form.save(commit=False)
+            new_evento = evento_form.save()
+            new_taller.evento_id = new_evento.pk
+            new_taller.save()
+            return HttpResponseRedirect('exito')
+    else:
+        taller_form = TallerForm()
+        evento_form = EventoForm()
+
+    return render(request, 'evento/evento_crear.html', {
+        'form1' : evento_form,
+        'form2' : taller_form,
+    })

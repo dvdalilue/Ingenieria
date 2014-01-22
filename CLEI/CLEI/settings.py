@@ -45,10 +45,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'participante',
+    'wkhtmltopdf',
+    'clei',
+    'persona',
+    'asistente',
+    'miembro_cp',
     'evento',
     'articulo',
-    'miembro_cp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,7 +88,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ve'
 
 TIME_ZONE = 'America/Caracas'
 

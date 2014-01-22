@@ -13,14 +13,19 @@
       <div class="navbar-inner">
         <div class="navbar">
     	  <div class="nav">
-      	    <a href="http://clei.org/">
-              <img src="/static/clei.png">
+      	    <a href="/">
+              <img class="clei" src="/static/clei_regen.png">
        	      <h1>CLEI</h1>
       	    </a>
     	  </div>
           <div class="nav">
             <ul>
-              <li><a href="/">Home</a></li>
+              <li><a href="#"><i>CLEI</i></a>
+                <ul>
+                  <li><a href="/clei/crear">Nuevo Clei</a></li>
+                  <li><a href="/clei/detalle">Detalles del Clei</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
           <div class="nav">
@@ -28,22 +33,25 @@
               <li><a href="#">Participante</a>
                 <ul>
                   <li>
-                    <a href="/participante">Listar
-                      Participantes</a>
+                    <a href="#">Listar Participantes</a>
                   </li>
-                  <li>
-                    <a href="/participante/create">Agregar
-                      Participante</a>
-                  </li>
-                  <li><a href="#">Inscritos</a>
+                  <li><a href="#">Asistentes</a>
                     <ul>
                       <li>
-                        <a href="/participante/ver_inscritos">Listar
-                          Inscritos</a>
+                        <a href="#">Inscribir Persona</a>
                       </li>
                       <li>
-                        <a href="/participante/create_inscripcion">Inscribir
-                          Participante</a>
+                        <a href="#">Listar Inscritos</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Invitados</a>
+                    <ul>
+                      <li>
+                        <a href="#">Invitar Persona</a>
+                      </li>
+                      <li>
+                        <a href="#">Listar Invitados</a>
                       </li>
                     </ul>
                   </li>	
@@ -56,12 +64,23 @@
               <li><a href="#">Evento</a>
                 <ul>
                   <li>
-                    <a href="/evento">Listar
-                      Eventos</a>
+                    <a href="/evento">Listar Eventos</a>
                   </li>
                   <li>
-                    <a href="/evento/create">Agregar
-                      Evento</a>
+                    <a href="#">Crear Evento</a>
+                    <ul>
+                      <li>
+                        <a href="/evento/sesion_crear">Nueva
+                        Sesion</a>
+                      </li>
+                      <li>
+                        <a href="/evento/charla_crear">Nueva Charla
+                        Invitada</a>
+                      </li>
+                      <li>
+                        <a href="/evento/taller_crear">Nuevo Taller</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -69,15 +88,13 @@
           </div>
           <div class="nav">
             <ul>
-              <li><a href="#">Miembro del Comite</a>
+              <li><a href="#">Comite de Programa</a>
                 <ul>
                   <li>
-                    <a href="/miembro_cp">Listar
-                      Miembros Comite Programas</a>
+                    <a href="/miembro_cp">Listar Miembros CP</a>
                   </li>
                   <li>
-                    <a href="/miembro_cp/create">Agregar
-                      Miembro Comite Programa</a>
+                    <a href="/miembro_cp/agregar">Agregar Miembro CP</a>
                   </li>
                 </ul>
               </li>
@@ -88,7 +105,13 @@
               <li><a href="#">Articulo</a>
                 <ul>
                   <li>
-                    <a href="/articulo/calificar_articulo">Calificar 
+                    <a href="/articulo">Ver Articulos</a>
+                  </li>
+                  <li>
+                    <a href="/articulo/agregar">Agregar Articulo</a>
+                  </li>
+                  <li>
+                    <a href="/miembro_cp/calificar">Calificar 
                       Articulo</a>
                   </li>
                 </ul>
@@ -104,7 +127,7 @@
       <div class="container">
         <div class="container-body">
           {% block content %}
-          <h3>Bienvenido</h3>
+          <h2>Bienvenido</h2>
           <h3>CLEI</h3>
           {% endblock %}
         </div>

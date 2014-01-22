@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>CLEI</h3>
+{% if clei %}
+<ul>
+  <li>Fecha Inicio: {{ clei.fecha_inicio }}</li>
+  <li>Fecha Fin: {{ clei.fecha_fin }}</li> 
+  <li>Fecha Tope Inscripcion: {{ clei.fecha_t_inscripcion }}</li> 
+  <li>Fecha Tope Preventa: {{ clei.fecha_t_preventa }}</li> 
+  <li>Fecha Tope Envio de Articulo: {{ clei.fecha_t_envio_articulo }}</li> 
+  <li>Fecha de Aceptacion: {{ clei.fecha_aceptacion }}</li> 
+  <li>Maximo numero de articulos: {{ clei.max_articulo }}</li> 
+  <li>Tarifa Normal: {{ clei.tarifa_normal }}</li> 
+  <li>Tarifa Reducida: {{ clei.tarifa_reducida }}</li>
+</ul>
+
+{% else %}
+<ul>
+  <li>No hay clei aun.</li>
+</ul>
+{% endif %}
+<form>
+  <input type="button" VALUE="Atras" onClick="history.go(-1);return
+        true;">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del CLEI</p>
+</li>
+{% endblock %}

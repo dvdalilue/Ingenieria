@@ -1,18 +1,15 @@
 from django.conf.urls import patterns, url
 
-from views import CreateEventoView, VerEventoView
-
 urlpatterns = patterns('evento.views',
-    # Examples:
-    # url(r'^$', 'CLEI.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^$', 'index'),
+    url(r'^$',
+        'evento_index'),
+    url(r'^detalles/(?P<pk>[\w]+)/$',
+        'evento_detalles'),
+    url(r'^sesion_crear/$',
+        'evento_sesion_crear'),
+    url(r'^charla_crear/$',
+        'evento_charla_crear'),
+    url(r'^taller_crear/$',
+        'evento_taller_crear'),
 )
 
-urlpatterns += patterns('',
-    url(r'^create/$', CreateEventoView.as_view(), 
-    	name='crear_evento'),
-    url(r'^ver/(?P<pk>[\w]+)/$', VerEventoView.as_view(), 
-    	name='ver_evento'),
-)

@@ -1,8 +1,5 @@
-from django.contrib import admin
+from django.contrib  import admin
+from articulo.models import Articulo, Palabra_Clave_Articulo
 
-from models import Articulo, Palabras_Claves, Topico, Calificacion
-
-admin.site.register(Articulo)
-admin.site.register(Palabras_Claves)
-admin.site.register(Topico)
-admin.site.register(Calificacion)
+admin.site.register(Articulo              )
+admin.site.register(Palabra_Clave_Articulo)
