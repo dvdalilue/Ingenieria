@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Invitados:</h3>
+{% if invitados %}
+<ul>
+  <ul>
+    {% for p in invitados %}
+    <li><a href="/invitado/ver/{{ p.id }}/">{{ p.nombre }}  {{ p.apellido }} </a></li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen Invitados.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Agregar Invitado" onClick="window.location.href='create'">
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los invitados del CLEI</p>
+</li>
+{% endblock %}

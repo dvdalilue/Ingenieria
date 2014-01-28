@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'^evento/', include('evento.urls')),
     
     url(r'^miembroCp/', include('miembroCp.urls')),
+    
+    url(r'^invitado/', include('invitado.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),

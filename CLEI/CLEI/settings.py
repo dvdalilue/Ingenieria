@@ -47,7 +47,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'participante',
     'evento',
-    'miembroCp'
+    'miembroCp',
+    'invitado',
 )
 
 MIDDLEWARE_CLASSES = (
