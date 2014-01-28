@@ -1,6 +1,6 @@
 from django		         import forms
 from evento.models               import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia
-from evento.models               import Charla, Palabra_Clave_Charla, Taller
+from evento.models               import Charla, Palabra_Clave_Charla, Taller, Lugar
 from clei.models                 import Topico
 from clei.widget	         import SelectTimeWidget
 from django.forms.extras.widgets import SelectDateWidget
@@ -8,6 +8,8 @@ from django.forms.extras.widgets import SelectDateWidget
 class EventoForm(forms.ModelForm):
 	class Meta:
 		model = Evento
+                exclude = ['lugar']
+
 
         def __init__(self, *args, **kwargs):
                 super(EventoForm, self).__init__(*args, **kwargs)
@@ -54,3 +56,9 @@ class TallerForm(forms.ModelForm):
         class Meta:
                 model   = Taller
                 exclude = ['evento']
+
+class LugarForm(forms.ModelForm):
+        class Meta:
+                model = Lugar
+
+class 

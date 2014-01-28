@@ -1,4 +1,5 @@
-from django.conf.urls import patterns, url
+from django.conf.urls     import patterns, url
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('evento.views',
     url(r'^$',
@@ -11,5 +12,13 @@ urlpatterns = patterns('evento.views',
         'evento_charla_crear'),
     url(r'^taller_crear/$',
         'evento_taller_crear'),
+    #url(r'^lugar_asignar/$',
+    #    'evento_lugar_asignar'),
+    url(r'^lugar_crear/$',
+        'evento_lugar_crear'),
+    url(r'^lugar_crear/exito/$',
+        TemplateView.as_view(template_name="evento/evento_lugar_listar.html")),
+    url(r'^lugar_listar/$',
+        'evento_lugar_listar'),
 )
 

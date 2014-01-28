@@ -81,23 +81,10 @@
                         <a href="/evento/taller_crear">Nuevo Taller</a>
                       </li>
                       <li>
-                        <a href="/evento/lugar_asignar">Asignar Lugar</a>
+                        <a href="/evento/lugar_crear">Nuevo Lugar</a>
                       </li>
                     </ul>
                   </li>
-                  <li>
-                    <a href="/evento">Lugar</a>
-                  <ul>
-                      <li>
-                        <a href="/evento/lugar_listar">Listar Lugar
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/evento/lugar_crear">Nuevo Lugar
-                        </a>
-                      </li>
-                  </ul>
-                 </li>
                 </ul>
               </li>
             </ul>

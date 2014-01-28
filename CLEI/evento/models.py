@@ -1,13 +1,22 @@
 from django.db   import models
 from clei.models import Topico
 
+class Lugar(models.Model):
+
+    nombre           = models.CharField(max_length=60)
+    ubicacion        = models.CharField(max_length=200)
+    capacidad_maxima = models.IntegerField(default=0)
+   # ...
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return self.nombre
+
 class Evento(models.Model):
     nombre       = models.CharField(max_length=100)
     fecha_inicio = models.DateField()
     fecha_fin    = models.DateField()
     hora_inicio  = models.TimeField()
     hora_fin     = models.TimeField()
-    lugar        = models.CharField(max_length=100)
+    lugar        = models.ForeignKey(Lugar, related_name = 'lugar_evento')
 
 class Sesion_Ponencia(models.Model):
     evento = models.ForeignKey(Evento, related_name='evento_sesion')

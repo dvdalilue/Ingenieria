@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Lugares:</h3>
+{% if objeto_lista %}
+<ul>
+    {% for e in objeto_lista %}
+    <li>{{ e.nombre }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen lugares.</p>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lugares Disponibles</p>
+</li>
+{% endblock %}

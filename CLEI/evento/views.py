@@ -1,13 +1,13 @@
 from django.shortcuts import render_to_response, render
-from django.http      import HttpResponse, Http404
+from django.http      import HttpResponse, HttpResponseRedirect, Http404
 
 from django.core.urlresolvers    import reverse
 from django.views.generic.edit   import CreateView
 from django.views.generic.detail import DetailView
 
-from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm, TallerForm
+from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm, LugarForm, TallerForm
 from models import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia
-from models import Charla, Palabra_Clave_Charla, Taller
+from models import Charla, Palabra_Clave_Charla, Taller, Lugar
 
 def evento_index(request):
     evento_lista = Evento.objects.all().order_by('nombre')
@@ -78,4 +78,23 @@ def evento_taller_crear(request):
     return render(request, 'evento/evento_crear.html', {
         'form1' : evento_form,
         'form2' : taller_form,
+    })
+
+def evento_lugar_listar(request):
+    lugar_lista = Lugar.objects.all().order_by('nombre')
+    return render_to_response('evento/evento_lugar_listar.html', 
+                              {'objeto_lista' : lugar_lista})
+
+
+def evento_lugar_crear(request):
+    if request.POST:
+        lugar_form = LugarForm(request.POST)
+        if lugar_form.is_valid():
+            lugar_form.save()
+            return HttpResponseRedirect('exito')
+    else:
+        lugar_form = LugarForm()
+
+    return render(request, 'evento/evento_lugar_crear.html', {
+        'form1' : lugar_form,
     })
