@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form1.as_p }}
+  {{ form2.as_p }}
+  <input type="submit" name="submit" value="Agregar MiembroCp"/>
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Introduccion de un nuevo Miembro CP al CLEI</p>
+</li>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Miembros Comite Programa:</h3>
+{% if objeto_lista %}
+<ul>
+  <ul>
+    {% for p in objeto_lista %}
+    <li><a href="/miembro_cp/detalles/{{ p.id }}/">{{ p }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen Miembros de Comite Programas.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Agregar Miembro CP" onClick="window.location.href='agregar'">
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los miembros de Comite Programa del CLEI</p>
+</li>
+{% endblock %}

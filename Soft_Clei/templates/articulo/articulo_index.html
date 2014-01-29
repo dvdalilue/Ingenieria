@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Articulos:</h3>
+{% if objeto_lista %}
+<ul>
+  <ul>
+    {% for a in objeto_lista %}
+    <li><a href="/articulo/detalles/{{ a.id }}/">{{ a.titulo }}</a></li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen articulos.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Crear Articulo" onClick="window.location.href='articulo_agregar'">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Articulos del CLEI</p>
+</li>
+{% endblock %}

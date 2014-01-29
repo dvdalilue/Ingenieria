@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Eventos:</h3>
+{% if objeto_lista %}
+<ul>
+  <ul>
+    {% for e in objeto_lista %}
+    <li><a href="/evento/detalles/{{ e.id }}/">{{ e.nombre }}</a></li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen eventos.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Crear Sesion de Ponencias"
+         onClick="window.location.href='sesion_crear'">
+  <input type="button" VALUE="Crear Charla"
+         onClick="window.location.href='charla_crear'">
+  <input type="button" VALUE="Crear Taller"
+         onClick="window.location.href='taller_crear'">
+  
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los eventos del CLEI</p>
+</li>
+{% endblock %}

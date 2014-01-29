@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" name="submit" VALUE="Cambiar Datos del CLEI">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Crear CLEI</p>
+</li>
+{% endblock %}

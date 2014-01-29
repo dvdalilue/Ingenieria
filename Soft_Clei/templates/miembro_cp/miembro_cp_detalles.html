@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ objeto }}</h3>
+<ul>
+  <li>Cargo: {{ objeto.cargo }}</li>
+</ul>
+<form>
+  <input type="button" VALUE="Atras" onClick="history.go(-1);return
+        true;">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del Miembro CP</p>
+</li>
+{% endblock %}
