@@ -2,17 +2,25 @@
 
 {% block content %}
 <h3>Lugares:</h3>
-{% if objeto_lista %}
-<ul>
+<table>
+<table width= 120%>
+    <tr>
+    <th scope="col">Lugar</th>
+    <th scope="col">Ubicación</th>
+    <th scope="col">Capacidad Máxima</th>
+    </tr>
+    <tr>
     {% for e in objeto_lista %}
-    <li>{{ e.nombre }}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<li>
-  <p>No existen lugares.</p>
-</li>
-{% endif %}
+        <td>{{ e.nombre }}</td>
+        <td>{{ e.ubicacion }}</td>
+        <td>{{ e.capacidad_maxima }}</td>
+    {% if not forloop.last %}
+    </tr>
+    <tr>
+    {% endif %}
+{% endfor %}
+    </tr>
+</table>
 {% endblock %}
 
 {% block sidebar %}
@@ -20,3 +28,4 @@
   <p>Lugares Disponibles</p>
 </li>
 {% endblock %}
+

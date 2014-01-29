@@ -61,4 +61,3 @@ class LugarForm(forms.ModelForm):
         class Meta:
                 model = Lugar
 
-class 
