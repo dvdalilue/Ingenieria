@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ object.name }}</h3>
+<ul>
+  <li>Name: {{ object.name }}</li>
+  <li>Document Id: {{ object.id_document }}</li>
+</ul>
+
+<form>
+  <input type="button" VALUE="Atras" onClick="history.go(-1);return
+        true;">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del participante</p>
+</li>
+{% endblock %}

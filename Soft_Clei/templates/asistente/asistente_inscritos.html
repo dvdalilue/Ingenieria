@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Incritos:</h3>
+{% if objeto_lista %}
+<ul>
+  {% for i in objeto_lista %}
+  <li><a href="/asistente/detalles/{{ i.id }}/">{{ i }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen inscritos.</p>
+</li>
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los eventos del CLEI</p>
+</li>
+{% endblock %}
