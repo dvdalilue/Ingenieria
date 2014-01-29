@@ -9,11 +9,12 @@ class Articulo(models.Model):
   #texto = models.TextField()
   resumen = models.TextField()
   aceptable = models.BooleanField(default=False)
-  puntaje_promedio = models.FloatField()
+  puntaje_promedio = models.FloatField(default=0.0)
   #calificaciones = CAMPO NUEVO
 
 class PalabraClave(models.Model):
   palabra = models.CharField(max_length=25)
+  articulo = models.
 
 class Topico(models.Model):
   topico = models.CharField(max_length=25)
