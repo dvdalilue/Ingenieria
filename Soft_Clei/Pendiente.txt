@@ -1,0 +1,27 @@
+﻿Funcionalidades pendientes(Ingeniería):
+
+Se quieren explorar diversas formas de seleccionar
+los artículos:
+1. El esquema ya previsto (evaluaciones más altas, desempate por el Presidente de la Comisión de Programas)
+2. Artículos escogidos por países. Se hace una lista por país y se acepta un mínimo de p artículos por país (los mejores de cada país). El resto se escoge estrictamente por nota (si hay empate se da preferencia a países poco representados).
+3. Se coloca una nota de corte n1 -todos los artículos con mayor nota que ésta se aceptan. Se coloca una segunda nota de corte n2 (n2 < n1), a estos artículos se les da prioridad por país menos representado. 1
+4. Se escoge 80% de los artículos proporcionalmente al número de artículos enviados por cada país. El 20% restante se hace por nota descendiente, irrespectivamente del país.
+5. Se escogen proporcionalmente a los temas enviados. (Nota: Aplicar el patrón estrategia para desarrollar esta funcionalidad)
+6. El Presidente del Comité de Programa escoge, de entre los EMPATADOS los artículos a aceptarse. 
+
+7. Se registra el estado final de la selección: aceptado,  aceptadoEspecial, rechazadoFaltaCupo,  rechazadoPorPromedio. 
+8.  Histogramas de los artículos aceptados: por autor,  por tópicos de artículos aceptados, por instituciones    de afiliación y por país. 
+
+9. Generar actas de la conferencia. 
+10. Programar eventos para los espacios disponibles en el programa de la conferencia. 
+11. Generar la lista de artículos por sesión. Para cada artículo se debe indicar el nombre y apellido y afiliación de sus autores, el título del artículo y el tópico. 
+12. Generar el programa detallado de actividades de la conferencia. 
+ 
+Clases Pendientes:
+
+Ponente.
+Invitado.
+Autor.
+Curriculum.
+
+
