@@ -12,9 +12,16 @@ from persona.forms     import PersonaForm
 def miembro_cp_index(request):
     miembros_cp = Miembro_CP.objects.all()
 
-    return render_to_response('miembro_cp/miembro_cp_index.html',
-                              {'objeto_lista': miembros_cp}
-    )
+    return render_to_response('lists/list_simple.html',
+                              {'objeto_lista': miembros_cp                   ,
+                               'titulo'      : 'Miembros del Comite P.:'     ,
+                               'modulo'      : 'miembro_cp/detalle'          ,
+                               'm_error'     : 'No existen miembros cp.'     ,
+                               'text'        : 'Comite de programas del CLEI',
+                               'ref'         : 'agregar/'                    ,
+                               'hpv'         : 'Agregar Miembro CP'          ,
+                               'b'           : 'Atras'                       ,
+    })
 
 def miembro_cp_agregar(request):
     if request.POST:

@@ -6,10 +6,9 @@ from clei.widget	         import SelectTimeWidget
 from django.forms.extras.widgets import SelectDateWidget
 
 class EventoForm(forms.ModelForm):
-	class Meta:
+        class Meta:
 		model = Evento
                 exclude = ['lugar']
-
 
         def __init__(self, *args, **kwargs):
                 super(EventoForm, self).__init__(*args, **kwargs)

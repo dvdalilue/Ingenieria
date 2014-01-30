@@ -5,7 +5,8 @@ from django.core.urlresolvers    import reverse
 from django.views.generic.edit   import CreateView
 from django.views.generic.detail import DetailView
 
-from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm, TallerForm, LugarForm
+from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, TallerForm, LugarForm
+from forms  import Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm
 from models import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia
 from models import Charla, Palabra_Clave_Charla, Taller, Lugar
 

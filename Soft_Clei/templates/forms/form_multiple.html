@@ -4,7 +4,9 @@
 <h3>{{ titulo }}</h3>
 <form action="" method="POST">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form1.as_p }}
+	{{ form2.as_p }}
+	{{ form3.as_p }}
   <input type="submit" name="submit" value="{{ button }}"/>
 </form>
 {% endblock %}

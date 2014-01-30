@@ -1,16 +1,16 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h3>{{ titulo }}</h3>
 <form action="" method="POST">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" name="submit" value="{{ button }}"/>
+  <input type="submit" name="submit" value="Registrar"/>
 </form>
+
 {% endblock %}
 
 {% block sidebar %}
 <li>
-  <p>{{ text }}</p>
+  <p>Creacion de articulo del CLEI</p>
 </li>
 {% endblock %}

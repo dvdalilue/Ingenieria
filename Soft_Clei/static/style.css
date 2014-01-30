@@ -206,9 +206,14 @@ body hr {
     width: 100%;
     padding: 0.3em 0;
     margin-bottom: 0.3em;
-    font-size: 125%;
+	margin-top: 0px;
+    font-size: 160%;
     color: #333;
     border-bottom: 1px solid #e5e5e5;
+}
+
+.container-body li {
+	margin-bottom: 35px;
 }
 
 .container-body li p {
@@ -309,7 +314,8 @@ body hr {
 }
 
 .container-body form input[type=submit],
-.container-body form input[type=button]{
+.container-body form input[type=button],
+.container-body form .boton {
 	font-size: 100%;
 	padding: .5em 1.5em;
 	color: #fff;

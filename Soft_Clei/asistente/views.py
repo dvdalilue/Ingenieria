@@ -12,8 +12,21 @@ from persona.forms    import PersonaForm
 
 def asistente_inscritos(request):
     inscritos_list = Inscrito.objects.all()
+<<<<<<< HEAD
     return render_to_response('asistente/asistente_inscritos.html',
                               {'objeto_lista' : inscritos_list},)
+=======
+    return render_to_response('lists/list_simple.html',
+                              {'objeto_lista' : inscritos_list,
+                               'titulo'      : 'Inscritos:'                 ,
+                               'modulo'      : 'asistente/inscritos/detalle',
+                               'm_error'     : 'No existen inscritos.'      ,
+                               'text'        : 'Inscritos al CLEI'          ,
+                               'ref'         : 'inscribir/'       ,
+                               'hpv'         : 'Inscribir Persona'          ,
+                               'b'           : 'Atras'                      ,
+    })
+>>>>>>> f935cdfc237a6e2f13b64ef790064e9e7abf4935
 
 def asistente_inscribir(request):
     if request.POST:
@@ -34,8 +47,11 @@ def asistente_inscribir(request):
         asistente_form = AsistenteForm()
         persona_form   = PersonaForm()
 
-    return render(request, 'asistente/asistente_inscribir.html', {
+    return render(request, 'forms/form_multiple.html', {
+        'titulo': 'Inscribir Persona:',
         'form1' : inscrito_form,
         'form2' : persona_form,
         'form3' : asistente_form,
+        'text'  : 'Inscripcion de una nueva persona',
+        'button': 'Inscribir',
     })
