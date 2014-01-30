@@ -10,11 +10,11 @@ class ArticuloForm(forms.ModelForm):
 
         def __init__(self, *args, **kwargs):
                 super(ArticuloForm, self).__init__(*args, **kwargs)
-                #self.fields["autor"].widget = forms.widgets.Select()
-                #self.fields["autor"].queryset = Autor.objects.all()
                 self.fields["topicos"].widget = forms.widgets.CheckboxSelectMultiple()
                 self.fields["topicos"].help_text = ""
                 self.fields["topicos"].queryset = Topico.objects.all()
+                self.fields["palabras_clave"].widget = forms.widgets.TextInput()
+                self.fields["palabras_clave"].help_text = ""
 
 class AutorForm(forms.ModelForm):
     class Meta:

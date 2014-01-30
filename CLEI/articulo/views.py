@@ -2,7 +2,7 @@ from django.http      import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 
 from articulo.forms   import ArticuloForm, AutorForm
-from articulo.models  import Articulo, Autor
+from articulo.models  import Articulo, Autor, Palabra_Clave_Articulo
 from clei.models      import Topico
 from reportlab.pdfgen import canvas
 
@@ -32,9 +32,17 @@ def articulo_detalles(request, pk):
 
 def articulo_agregar(request):
     if request.POST:
-        crear_form = ArticuloForm(request.POST)
+        articulo_instancia = Articulo()
+        crear_form = ArticuloForm(instance=articulo_instancia, data=request.POST)
         if crear_form.is_valid():
+            palabras_clave = crear_form.cleaned_data['palabras_clave']
+            lista = palabras_clave.split(',')
             crear_form.save()
+            for p in lista:
+                p_clave = Palabra_Clave_Articulo(palabra=p)
+                p_clave.save()
+                p_clave.articulo.add(articulo_instancia)
+                p_clave.save()
             return HttpResponseRedirect('exito')
     else:
         crear_form = ArticuloForm()
@@ -69,8 +77,6 @@ def autor_detalles(request, pk):
 
     return render_to_response('articulo/autor_detalles.html',
                               {'objeto' : autor})
-
-   
 
 def to_pdf(request):
 
