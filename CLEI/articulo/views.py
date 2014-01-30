@@ -1,14 +1,25 @@
 from django.http      import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 
-from articulo.forms   import ArticuloForm
-from articulo.models  import Articulo
+from articulo.forms   import ArticuloForm, AutorForm
+from articulo.models  import Articulo, Autor
+from clei.models      import Topico
 from reportlab.pdfgen import canvas
 
 def articulo_index(request):
-    articulo_lista = Articulo.objects.all().order_by('titulo')
+    num_articulos = Articulo.objects.count()
     return render_to_response('articulo/articulo_index.html', 
-                              {'objeto_lista' : articulo_lista})
+                              {'objeto_int' : num_articulos})
+
+def articulo_mostrar_autor(request):
+    articulos = Articulo.objects.all()
+    return render_to_response('articulo/articulo_lista.html',
+                              {'objeto_lista' : articulos})
+
+def articulo_mostrar_topicos(request):
+    topicos = Topico.objects.all()
+    return render_to_response('articulo/articulo_topicos.html',
+                              {'objeto_lista' : topicos})
 
 def articulo_detalles(request, pk):
     try:
@@ -31,6 +42,24 @@ def articulo_agregar(request):
     return render(request, 'articulo/articulo_agregar.html', {
         'form': crear_form,
     })
+
+def articulo_registrar_autor(request):
+    if request.POST:
+        crear_form = AutorForm(request.POST)
+        if crear_form.is_valid():
+            crear_form.save()
+            return HttpResponseRedirect('exito')
+    else:
+        crear_form = AutorForm()
+
+    return render(request, 'articulo/articulo_agregar_autor.html', {
+        'form' : crear_form,
+    })
+
+def articulo_listar_autor(request):
+    autores = Autor.objects.all()
+    return render_to_response('articulo/articulo_autor_lista.html',
+                              {'objeto_lista' : autores})
 
 def to_pdf(request):
 

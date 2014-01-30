@@ -2,12 +2,12 @@
 
 {% block content %}
 <h3>Articulos:</h3>
-{% if objeto_lista %}
+{% if objeto_int > 0 %}
 <ul>
   <ul>
-    {% for a in objeto_lista %}
-    <li><a href="/articulo/detalles/{{ a.id }}/">{{ a.titulo }}</a></li>
-    {% endfor %}
+    <li><a href="/articulo/autor/">Mostrar por autor</a></li>
+    <li><a href="/articulo/topico/">Mostrar por topicos</a></li>
+    <li><a href="/articulo/palabrasclaves/">Buscar palabras claves</a></li>
   </ul>
 </ul>
 {% else %}
@@ -16,8 +16,12 @@
 </li>
 {% endif %}
 
+
+
+
+
 <form>
-  <input type="button" VALUE="Crear Articulo" onClick="window.location.href='articulo_agregar'">
+  <input type="button" VALUE="Crear Articulo" onClick="window.location.href='agregar'">
 </form>
 {% endblock %}
 
