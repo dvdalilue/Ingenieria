@@ -1,5 +1,5 @@
 from django      import forms
-from models      import Articulo, Palabra_Clave_Articulo
+from models      import Autor, Articulo, Palabra_Clave_Articulo
 from clei.models import Topico
 
 class ArticuloForm(forms.ModelForm):
@@ -13,6 +13,13 @@ class ArticuloForm(forms.ModelForm):
                 self.fields["topicos"].widget = forms.widgets.CheckboxSelectMultiple()
                 self.fields["topicos"].help_text = ""
                 self.fields["topicos"].queryset = Topico.objects.all()
+                self.fields["palabras_clave"].widget = forms.widgets.CheckboxSelectMultiple()
+                self.fields["palabras_clave"].help_text = ""
+                self.fields["palabras_clave"].queryset = Palabra_Clave_Articulo.objects.all()
+
+class AutorForm(forms.ModelForm):
+    class Meta:
+        model = Autor
 
 class Palabra_Clave_ArticuloForm(forms.ModelForm):
         class Meta:

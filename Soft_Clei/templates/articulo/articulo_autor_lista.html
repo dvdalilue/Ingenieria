@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Autores registrados:</h3>
+{% if objeto_lista %}
+<ul>
+  <ul>
+    {% for a in objeto_lista %}
+    <li>
+      <a href="">
+        {{ a.nombre }} {{ a.apellido }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No hay autores registrados.</p>
+</li>
+{% endif %}
+
+<form>
+  <input type="button" VALUE="Registrar Autor" onClick="window.location.href='registrar'">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Autores de articulos a ser expuestos en el CLEI.</p>
+</li>
+{% endblock %}

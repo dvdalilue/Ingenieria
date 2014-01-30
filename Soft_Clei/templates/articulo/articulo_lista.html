@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Articulos:</h3>
+{% if objeto_lista %}
+<ul>
+  <ul>
+    {% for a in objeto_lista %}
+    <li>
+      <a href="/articulo/detalles/{{ a.id }}/">{{ a.titulo }}</a>, 
+      <i>{{ a.autor.nombre }} {{ a.autor.apellido }}</i>
+    </li>
+    {% endfor %}
+  </ul>
+</ul>
+{% else %}
+<li>
+  <p>No existen articulos.</p>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Articulos del CLEI.</p>
+</li>
+{% endblock %}

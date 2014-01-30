@@ -1,10 +1,12 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h3>{{ object.name }}</h3>
+<h3>Datos de la persona:</h3>
 <ul>
-  <li>Name: {{ object.name }}</li>
-  <li>Document Id: {{ object.id_document }}</li>
+  <li>Nombre Completo: {{ object.nombre }} {{ object.apellido }}</li>
+  <li>Cédula: {{ object.cedula }}</li>
+  <li>Institución: {{ object.institucion_afiliada }}</li>
+  <li>Correo electrónico: {{ object.email }}</li>
 </ul>
 
 <form>
@@ -15,6 +17,6 @@
 
 {% block sidebar %}
 <li>
-  <p>Datos del participante</p>
+  <p>Datos personales.</p>
 </li>
 {% endblock %}
