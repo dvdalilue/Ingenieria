@@ -3,7 +3,6 @@ from django.shortcuts import render, render_to_response
 
 from articulo.forms   import ArticuloForm
 from articulo.models  import Articulo
-from reportlab.pdfgen import canvas
 
 def articulo_index(request):
     articulo_lista = Articulo.objects.all().order_by('titulo')

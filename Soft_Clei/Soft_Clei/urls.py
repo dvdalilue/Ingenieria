@@ -15,8 +15,8 @@ urlpatterns = patterns('',
     url(r'^miembro_cp/'  , include('miembro_cp.urls')                           ),
     url(r'^asistente/'   , include('asistente.urls')                            ),
     url(r'^persona/'     , include('persona.urls')                              ),
-                                                                              
-    # Uncomment the next line to enable the admin:                            
+    url(r'^invitado/'    , include('invitado.urls')                             ),                                                                   
+                       
     url(r'^admin/'       , include(admin.site.urls)                             ),
 
     # Uncomment the admin/doc line below to enable admin documentation:
