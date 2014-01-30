@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ titulo }}</h3>
+{% if objeto_lista %}
+<ul>
+  {% for a in objeto_lista %}
+  <li><a href="/{{ modulo }}/{{ a.id }}/">{{ a.titulo }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>{{ m_error }}</p>
+</li>
+{% endif %}
+<form>
+	<a class="boton" href="javascript:history.back()">{{ b }}</a>
+	<a class="boton" href="{{ ref }}">{{ hpv }}</a>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>{{ text }}</p>
+</li>
+{% endblock %}
