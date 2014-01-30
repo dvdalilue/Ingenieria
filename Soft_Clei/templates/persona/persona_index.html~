@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Participantes:</h1>
+
+<h3>Comite de Programas:</h3>
+{% if comite_lista %}
+<ul>
+  {% for c in comite_lista %}
+  <li><a href="/miembro_cp/detalles/{{ c.id }}/">{{ c }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen inscritos.</p>
+</li>
+{% endif %}
+
+
+<h3>Inscritos:</h3>
+{% if inscrito_lista %}
+<ul>
+  {% for i in inscrito_lista %}
+  <li><a href="#">{{ i }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen inscritos.</p>
+</li>
+{% endif %}
+
+<h3>Invitados:</h3>
+{% if invitados_lista %}
+<ul>
+  {% for i in invitados_lista %}
+  <li><a href="#">{{ i }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen invitados.</p>
+</li>
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los participantes del CLEI</p>
+</li>
+{% endblock %}
