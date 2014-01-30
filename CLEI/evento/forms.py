@@ -8,8 +8,6 @@ from django.forms.extras.widgets import SelectDateWidget
 class EventoForm(forms.ModelForm):
 	class Meta:
 		model = Evento
-                exclude = ['lugar']
-
 
         def __init__(self, *args, **kwargs):
                 super(EventoForm, self).__init__(*args, **kwargs)
@@ -17,6 +15,9 @@ class EventoForm(forms.ModelForm):
 		self.fields["fecha_fin"].widget	   = SelectDateWidget()
                 self.fields["hora_inicio"].widget  = SelectTimeWidget()
 		self.fields["hora_fin"].widget	   = SelectTimeWidget()
+                self.fields["lugar"].widget        = forms.widgets.RadioSelect()                
+                self.fields["lugar"].help_text = ""
+		self.fields["lugar"].queryset  = Lugar.objects.all().order_by('nombre')
 
 class Sesion_PonenciaForm(forms.ModelForm):
         class Meta:
@@ -29,9 +30,9 @@ class PonenciaForm(forms.ModelForm):
 
         def __init__(self, *args, **kwargs):
                 super(PonenciaForm, self).__init__(*args, **kwargs)
-                self.fields["topicos"].widget = forms.widgets.CheckboxSelectMultiple()
+                self.fields["topicos"].widget    = forms.widgets.CheckboxSelectMultiple()
                 self.fields["topicos"].help_text = ""
-		self.fields["topicos"].queryset = Topico.objects.all()
+		self.fields["topicos"].queryset  = Topico.objects.all()
 
 class Palabra_Clave_PonenciaForm(forms.ModelForm):
         class Meta:
@@ -60,4 +61,3 @@ class TallerForm(forms.ModelForm):
 class LugarForm(forms.ModelForm):
         class Meta:
                 model = Lugar
-

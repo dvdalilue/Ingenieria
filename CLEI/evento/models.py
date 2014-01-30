@@ -4,7 +4,7 @@ from clei.models import Topico
 class Lugar(models.Model):
     nombre           = models.CharField(max_length=60)
     ubicacion        = models.CharField(max_length=200)
-    capacidad_maxima = models.IntegerField(default=0)
+    capacidad_maxima = models.IntegerField(default=1)
 
     def __unicode__(self):
         return self.nombre

@@ -79,12 +79,11 @@ def evento_taller_crear(request):
         'form1' : evento_form,
         'form2' : taller_form,
     })
-
+    
 def evento_lugar_listar(request):
     lugar_lista = Lugar.objects.all().order_by('nombre')
     return render_to_response('evento/evento_lugar_listar.html', 
                               {'objeto_lista' : lugar_lista})
-
 
 def evento_lugar_crear(request):
     if request.POST:
@@ -94,7 +93,15 @@ def evento_lugar_crear(request):
             return HttpResponseRedirect('exito')
     else:
         lugar_form = LugarForm()
-
+        
     return render(request, 'evento/evento_lugar_crear.html', {
         'form1' : lugar_form,
     })
+
+def evento_listar_asignar(request):
+    evento_lista = Evento.objects.all().order_by('nombre')
+    return render_to_response('evento/evento_listar_asignar.html', 
+                              {'objeto_lista' : evento_lista})
+
+#def evento_lugar_asignar(request, pk):
+ #   if request.POST:
