@@ -45,13 +45,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'wkhtmltopdf',
     'clei',
     'persona',
     'asistente',
     'miembro_cp',
     'evento',
     'articulo',
+    'miembroCp',
+    'invitado',
 )
 
 MIDDLEWARE_CLASSES = (
