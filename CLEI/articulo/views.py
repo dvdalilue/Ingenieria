@@ -43,7 +43,7 @@ def articulo_agregar(request):
         'form': crear_form,
     })
 
-def articulo_registrar_autor(request):
+def autor_registrar(request):
     if request.POST:
         crear_form = AutorForm(request.POST)
         if crear_form.is_valid():
@@ -52,14 +52,25 @@ def articulo_registrar_autor(request):
     else:
         crear_form = AutorForm()
 
-    return render(request, 'articulo/articulo_agregar_autor.html', {
+    return render(request, 'articulo/autor_agregar.html', {
         'form' : crear_form,
     })
 
-def articulo_listar_autor(request):
+def autor_listar(request):
     autores = Autor.objects.all()
-    return render_to_response('articulo/articulo_autor_lista.html',
+    return render_to_response('articulo/autor_lista.html',
                               {'objeto_lista' : autores})
+
+def autor_detalles(request, pk):
+    try:
+        autor = Autor.objects.get(pk=pk)
+    except Autor.DoesNotExist:
+        raise Http404
+
+    return render_to_response('articulo/autor_detalles.html',
+                              {'objeto' : autor})
+
+   
 
 def to_pdf(request):
 
