@@ -20,7 +20,7 @@ class Curriculum(object):
     def __init__(self, trabajos_previos, experticia, experticia_adicional, informacion_extra):
         """Constructor"""
         
-	self.trabajos_previos = trabajos_previos
+	      self.trabajos_previos = trabajos_previos
         self.experticia = experticia
         self.experticia_adicional = experticia_adicional
         self.informacion_extra = informacion_extra

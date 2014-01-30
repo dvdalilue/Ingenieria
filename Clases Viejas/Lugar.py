@@ -24,11 +24,11 @@ class Lugar(object):
        self.capacidad_maxima = capacidad_maxima
        
     def equals(self, Lugar):
-        if self.nombre == Lugar.nombre:
+     if self.nombre == Lugar.nombre:
 	   print "Ambos Lugares tienen el mismo Nombre"
 	   if self.ubicacion == Lugar.ubicacion:
 	    return True
-	else:
+	   else:
 	    return False
             
     def __str__(self):
