@@ -1,8 +1,8 @@
 #*****************************************************************************
 #  persona.views
 #
-# Descripcion : conjunto de urls que redireccionan a otrasmplementa a las personas
-#               que participan en  el CLEI
+# Descripcion : views que necesitan de un request para renderizar determinadas
+# 					plantillas
 #
 # Autores : 
 #           David Lilue       #  carnet: 09-10444

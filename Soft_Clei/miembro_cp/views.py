@@ -1,3 +1,21 @@
+#*****************************************************************************
+#  miembro_cp.views
+#
+#  Descripcion : views que necesitan de un request para renderizar determinadas
+# 					plantillas
+#
+# Autores : 
+#           David Lilue       #  carnet: 09-10444
+#           Veronica Linayo   #  carnet: 08-10615
+#           Audry Morillo     #  carnet: 07-41253
+#           Vanessa Rivas     #  carnet: 10-10608
+#           Michael Woo       #  carnet: 09-10912
+#
+# Grupo :1, 3, 4 
+# Seccion : 1
+#
+#*****************************************************************************
+
 from django.shortcuts import render_to_response, render
 from django.http      import HttpResponse, HttpResponseRedirect, Http404
 
@@ -10,6 +28,11 @@ from miembro_cp.forms  import Miembro_CPForm, CalificacionForm
 from persona.forms     import PersonaForm
  
 def miembro_cp_index(request):
+  """ Metodo : miembro_cp_index
+        Parametros : request
+        Descripcion: Metodo que le pasa una lista con todos miembros del 
+        cp y todos las personas inscritas a la plantilla persona_index.html
+        la cual se encarga de mostrar ambas listas en html"""
     miembros_cp = Miembro_CP.objects.all()
 
     return render_to_response('miembro_cp/miembro_cp_index.html',

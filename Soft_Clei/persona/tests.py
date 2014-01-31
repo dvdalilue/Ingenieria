@@ -15,9 +15,7 @@
 #
 #*****************************************************************************
 
-#from django.test import TestCase
 from django.utils import unittest
-# Create your tests here.
 from persona.models import Persona
 from django.test.client import Client
 
@@ -25,7 +23,7 @@ from django.test.client import Client
 #Pruebas de models y views de persona
 class Test_Persona(unittest.TestCase):
 
-  fixtures = ['persona_views_testdata.json']
+  #fixtures = ['persona_views_testdata.json']
 
 
   def setUp(self):
