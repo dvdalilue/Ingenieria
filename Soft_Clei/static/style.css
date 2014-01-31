@@ -225,6 +225,7 @@ body hr {
 .container-body form {
 	display: block;
 	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .container-body form p {

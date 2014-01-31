@@ -18,8 +18,14 @@ class Evento(models.Model):
     hora_fin     = models.TimeField()
     lugar        = models.ForeignKey(Lugar, related_name = 'lugar_evento')
 
+    def __unicode__(self):
+        return self.nombre
+
 class Sesion_Ponencia(models.Model):
     evento = models.ForeignKey(Evento, related_name='evento_sesion')
+
+    def __unicode__(self):
+        return self.evento
 
 class Ponencia(models.Model):
     topicos = models.ManyToManyField(Topico)
@@ -37,6 +43,9 @@ class Charla(models.Model):
     topicos = models.ManyToManyField(Topico)
     evento  = models.ForeignKey(Evento, related_name='evento_charla')
 
+def __unicode__(self):
+        return self.evento
+
 class Palabra_Clave_Charla(models.Model):
     palabra = models.CharField(max_length = 10, null=True, blank=True)
     charla  = models.ForeignKey(Charla, related_name = "charla_palabra_clave")
@@ -46,3 +55,6 @@ class Palabra_Clave_Charla(models.Model):
 
 class Taller(models.Model):
     evento = models.ForeignKey(Evento, related_name='evento_taller')
+
+    def __unicode__(self):
+        return self.evento

@@ -14,9 +14,9 @@ urlpatterns = patterns('evento.views',
         'evento_taller_crear'),
     url(r'^lugar_crear/$',
         'evento_lugar_crear'),
-    url(r'^lugar_crear/exito/$',
-        TemplateView.as_view(template_name="evento/evento_lugar_listar.html")),
     url(r'^lugar_listar/$',
         'evento_lugar_listar'),
+    url(r'^exito/$',
+        TemplateView.as_view(template_name="evento/evento_exito.html")),
 )
 

@@ -1,15 +1,14 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h3>{{ object.nombre_evento }}</h3>
+<h3>{{ objeto.nombre }}</h3>
 <ul>
-  <li>Name: {{ object.nombre_evento }}</li>
-  <li>Tipo: {{ object.tipo_evento }}</li>
+  <li>Nombre: {{ objeto.nombre }}</li>
+  <li>Lugar: {{ objeto.lugar }}</li>
 </ul>
 
 <form>
-  <input type="button" VALUE="Atras" onClick="history.go(-1);return
-        true;">
+	<a class="boton" href="javascript:history.back()">Atras</a>
 </form>
 {% endblock %}
 

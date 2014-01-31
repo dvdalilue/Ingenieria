@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Eventos:</h2>
+<h3>Sesiones de Ponencias:</h3>
+{% if sesion_lista %}
+<ul>
+  {% for s in sesion_lista %}
+  <li><a href="/evento/detalles/{{ s.id }}/">{{ s }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen sesiones de ponencia.</p>
+</li>
+{% endif %}
+<form>
+	<a class="boton" href="/evento/sesion_crear">Crear Sesion</a>
+</form>
+
+<h3>Charlas Invitadas:</h3>
+{% if charla_lista %}
+<ul>
+  {% for c in charla_lista %}
+  <li><a href="/evento/detalles/{{ c.id }}/">{{ c }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen charlas invitadas</p>
+</li>
+{% endif %}
+<form>
+	<a class="boton" href="/evento/charla_crear">Crear Charla</a>
+</form>
+
+<h3>Talleres:</h3>
+{% if taller_lista %}
+<ul>
+  {% for t in taller_lista %}
+  <li><a href="/evento/detalles/{{ t.id }}/">{{ t }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<li>
+  <p>No existen talleres.</p>
+</li>
+{% endif %}
+<form>
+	<a class="boton" href="/evento/taller_crear">Crear Taller</a>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Lista de los eventos del CLEI</p>
+</li>
+{% endblock %}
