@@ -11,6 +11,7 @@
   <input type="button" VALUE="Atras" onClick="history.go(-1);return
         true;">
 </form>
+{% endblock %}
 
 {% block sidebar %}
 <li>

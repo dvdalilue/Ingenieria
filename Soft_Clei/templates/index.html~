@@ -80,6 +80,9 @@
                       <li>
                         <a href="/evento/taller_crear">Nuevo Taller</a>
                       </li>
+                      <li>
+                        <a href="/evento/lugar_asignar">Asignar Lugar</a>
+                      </li>
                     </ul>
                   </li>
                   <li>
