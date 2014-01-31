@@ -6,8 +6,8 @@
 <h3>{{ e.nombre }}</h3>
     {% endfor %}  
 <ul>
-  <li>Name: {{ object.nombre_evento }}</li>
-  <li>Tipo: {{ object.tipo_evento }}</li>
+  <li>Name: {{ e.nombre }}</li>
+  <li>Tipo: {{ e.tipo }}</li>
 </ul>
 {% else %}
 <li>
