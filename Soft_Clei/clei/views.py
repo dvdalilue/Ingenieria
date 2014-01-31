@@ -11,19 +11,18 @@ from models   import CLEI
 def datos(request):
     try:
         clei = CLEI.objects.get(pk=1)
-        return render_to_response('clei/detalles.html',
-                                  {'clei' : clei})
     except CLEI.DoesNotExist:
-        return render_to_response('clei/detalles.html',
-                                  {'clei' : None})
+        raise Http404
+    
+    return render_to_response('clei/detalles.html',
+                                  {'clei' : clei})
 
 def crear(request):    
     if request.POST:
         clei = CLEIForm(request.POST)
         if clei.is_valid():
             clei.save()
-            return render_to_response('clei/detalles.html',
-                                      {'clei' : clei})
+            return HttpResponseRedirect('')
     else:
         clei = CLEIForm()
 

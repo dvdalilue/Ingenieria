@@ -21,12 +21,13 @@ class Evento(models.Model):
 
 class Sesion_Ponencia(models.Model):
     evento = models.ForeignKey(Evento, related_name='evento_sesion')
+    
+    def __str__(self):
+        return self.evento
 
 class Ponente(models.Model):
     asistente = models.ForeignKey(Asistente)
     
-    def __str__(self):
-        return self.asistente
     
 class Ponencia(models.Model):
     topicos = models.ManyToManyField(Topico)
