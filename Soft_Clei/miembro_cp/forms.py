@@ -42,3 +42,6 @@ class CalificacionForm(forms.ModelForm):
                         return j
 
                 raise forms.ValidationError('ATENCION: **Ya este jurado voto por ese articulo**!')
+
+class SeleccionForm(forms.Form):
+    minimo_por_pais = forms.IntegerField(min_value=1,max_value=100)

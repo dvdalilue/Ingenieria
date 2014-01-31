@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Articulos seleccionados:</h3>
+<ul>
+  <ul>
+    {% for a in seleccion %}
+    <li>
+      <a href="">
+        {{ a.pais }}: {{ a.titulo }}, {{ a.autor }}.
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</ul>
+
+<form>
+  <input type="button" VALUE="Registrar Autor" onClick="window.location.href='registrar'">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Autores de articulos a ser expuestos en el CLEI.</p>
+</li>
+{% endblock %}

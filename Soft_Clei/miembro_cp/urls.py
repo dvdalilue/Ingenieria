@@ -10,6 +10,10 @@ urlpatterns = patterns('miembro_cp.views',
         'miembro_cp_detalles'),
     url(r'^calificar/$',
         'miembro_cp_calificar'),
+    url(r'^seleccion/$',
+        'miembro_cp_seleccion_index'),
+    url(r'^seleccion/pais/$',
+        'miembro_cp_seleccion_pais'),
 )
 
 urlpatterns += patterns('',
