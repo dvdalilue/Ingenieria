@@ -81,7 +81,7 @@ def agregar_ponente_ponencia(request):
         persona_form = PersonaForm(request.POST)
         asistente_form = AsistenteForm(request.POST)
         ponente_form = PonenteForm(request.POST)
-        ponencia_form = Ponencia_PonenciaForm(request.POST)
+        ponencia_form = PonenciaForm(request.POST)
         if ponencia_form.is_valid() and ponente_form.is_valid() and asistente_form.is_valid() and persona_form.is_valid():
             new_persona = persona_form.save(commit=False)
             new_asistente = asistente_form.save(commit=False)

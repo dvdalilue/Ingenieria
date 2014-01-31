@@ -80,3 +80,38 @@ def autor_listar(request):
     return render_to_response('articulo/autor_lista.html',
                               {'objeto_lista' : autores})
 
+def autor_detalles(request, pk):
+    try:
+        autor = Autor.objects.get(pk=pk)
+    except Autor.DoesNotExist:
+        raise Http404
+
+    return render_to_response('articulo/autor_detalles.html',
+                              {'objeto' : autor})
+
+def to_pdf(request):
+
+    # Create the HttpResponse object with the appropriate PDF headers.
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="download.pdf"'
+    
+    articulo_list = Articulo.objects.all().order_by('titulo')
+
+    # Create the PDF object, using the response object as its "file."
+    p = canvas.Canvas(response)
+    i = 740
+    # Draw things on the PDF. Here's where the PDF generation happens.
+    # See the ReportLab documentation for the full list of functionality.
+    if articulo_list:
+        for a in articulo_list:
+            if i>=100:
+                p.drawString(100, i, a.titulo)
+            i = i-20
+    else:
+        p.drawString(100, 740, "No hay articulos")
+    
+    # Close the PDF object cleanly, and we're done.
+    p.showPage()
+    p.save()
+    return response
+

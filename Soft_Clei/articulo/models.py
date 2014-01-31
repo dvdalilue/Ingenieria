@@ -32,4 +32,3 @@ class Palabra_Clave_Articulo(models.Model):
 
     def __str__(self):
         return self.palabra
-
