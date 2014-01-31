@@ -1,5 +1,6 @@
 from django.db   import models
 from clei.models import Topico
+#from miembro_cp.models import Calificacion
 from persona.models import Persona
 
 class Autor(models.Model):
@@ -18,6 +19,7 @@ class Articulo(models.Model):
     puntaje_promedio = models.FloatField(default =0.0)
     topicos          = models.ManyToManyField(Topico)
     palabras_clave   = models.CharField(max_length=100)
+#    calificacion     = models.ForeignKey(Calificacion)
 
     def __str__(self):
         return self.titulo

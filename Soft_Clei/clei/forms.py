@@ -1,5 +1,5 @@
 from django                      import forms
-from models                      import CLEI
+from models                      import CLEI, Topico
 from clei.widget                 import SelectTimeWidget
 from django.forms.extras.widgets import SelectDateWidget
 
@@ -15,3 +15,7 @@ class CLEIForm(forms.ModelForm):
         self.fields["fecha_t_preventa"].widget       = SelectDateWidget()
         self.fields["fecha_t_envio_articulo"].widget = SelectDateWidget()
         self.fields["fecha_aceptacion"].widget       = SelectDateWidget()
+
+class TopicoForm(forms.ModelForm):
+    class Meta:
+        model = Topico

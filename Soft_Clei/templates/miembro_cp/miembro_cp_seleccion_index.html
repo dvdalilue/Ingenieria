@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Seleccion de Articulos</h3>
+{% if articulos > 0 %}
+<ul>
+  <li><a href="">Seleccion por calificaciones mas altas</a></li>
+  <li><a href="/miembro_cp/seleccion/pais/">Seleccion por pais</a></li>
+</ul>
+{% else %}
+<li>
+  <p>No existen articulos.</p>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Seleccion de articulos para el CLEI</p>
+</li>
+{% endblock %}

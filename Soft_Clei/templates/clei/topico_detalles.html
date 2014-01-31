@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Datos del Topico:</h3>
+<ul>
+	<li>{{ objeto.nombre }}</li>
+</ul>
+
+<form>
+	<a class="boton" href="javascript:history.back()">Atras</a>
+	<a class="boton" href="/clei/agregar_topico">Crear Topico</a>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del Asistente</p>
+  <p><b>{{ objeto }}</b></p>
+</li>
+{% endblock %}

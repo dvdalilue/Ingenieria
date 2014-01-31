@@ -89,7 +89,7 @@ def articulo_autor_registrar(request):
             new_autor = crear_form.save(commit=False)
             new_autor.autor_id = new_persona.pk
             new_autor.save()
-            return HttpResponseRedirect('/articulo/exito')
+            return HttpResponseRedirect('/articulo/autor_exito')
     else:
         crear_form = AutorForm()
         persona_form = PersonaForm()
