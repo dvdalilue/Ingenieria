@@ -8,7 +8,6 @@ from django.forms.extras.widgets import SelectDateWidget
 class EventoForm(forms.ModelForm):
         class Meta:
 		model = Evento
-        #exclude = ['lugar']
 
         def __init__(self, *args, **kwargs):
                 super(EventoForm, self).__init__(*args, **kwargs)
@@ -20,7 +19,7 @@ class EventoForm(forms.ModelForm):
 class Sesion_PonenciaForm(forms.ModelForm):
         class Meta:
                 model   = Sesion_Ponencia
-                #exclude = ['evento']
+                exclude = ['evento']
 
 class PonenciaForm(forms.ModelForm):
         class Meta:

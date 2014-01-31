@@ -7,6 +7,8 @@ from django.views.generic.detail import DetailView
 
 from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, TallerForm, LugarForm, PonenteForm
 from forms  import Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm
+from asistente.forms import AsistenteForm
+from persona.forms import PersonaForm
 from models import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia, Ponente
 from models import Charla, Palabra_Clave_Charla, Taller, Lugar
 from asistente.models import Asistente
