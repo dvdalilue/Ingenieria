@@ -9,6 +9,8 @@ from forms  import EventoForm, Sesion_PonenciaForm, PonenciaForm, TallerForm, Lu
 from forms  import Palabra_Clave_PonenciaForm, CharlaForm, Palabra_Clave_CharlaForm
 from models import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia, Ponente
 from models import Charla, Palabra_Clave_Charla, Taller, Lugar
+from asistente.models import Asistente
+from persona.models import Persona
 
 def evento_index(request):
     evento_lista = Evento.objects.all().order_by('nombre')
@@ -43,10 +45,6 @@ def evento_sesion_crear(request):
         'form2' : sesion_form,
     })
 
-def listar_ponencia_sesion(request):
-    ponencias = Ponencia.objects.all()
-    return render_to_response('evento/listar_ponencia.html', {'objeto_lista': ponencias})
-
 def agregar_ponencia_sesion(request):
     if request.POST:
         ponente_form = PonenteForm(request.POST)
@@ -71,7 +69,11 @@ def agregar_ponencia_sesion(request):
         'form2' : ponencia_form,
         'form3' : sesion_form,
     }) 
-    
+
+def listar_ponencia_sesion(request):
+    ponencias = Ponencia.objects.all()
+    return render_to_response('evento/listar_ponencia.html', {'objeto': ponencias})
+
 def agregar_ponente_ponencia(request):
     if request.POST:
         persona_form = PersonaForm(request.POST)
