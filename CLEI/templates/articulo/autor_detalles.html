@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Datos del Autor</h3>
+<ul>
+  <li>Nombre: <i>{{ objeto.nombre  }} {{ objeto.apellido }}</i></li>
+  <li>Pais de procedencia: <i>{{ objeto.pais }}</i></li>
+  <li>Institucion: <i>{{ objeto.pais }}</i></li>
+  <li>Correo electronico: <i>{{ objeto.email }}</i></li>
+</ul>
+
+<form>
+  <input type="button" VALUE="Atras" onClick="history.go(-1);return
+        true;">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del Autor</p>
+  <p><b>{{ objeto.nombre  }} {{ objeto.apellido }}</b></p>
+</li>
+{% endblock %}
