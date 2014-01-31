@@ -9,9 +9,11 @@ urlpatterns = patterns('articulo.views',
     url(r'^detalles/(?P<pk>[\w]+)/$',
         'articulo_detalles'),
     url(r'^autor/$',
-        'articulo_listar_autor'),
+        'autor_listar'),
     url(r'^autor/registrar/$',
-        'articulo_registrar_autor'),
+        'autor_registrar'),
+    url(r'^autor/detalles/(?P<pk>[\w]+)/$',
+        'autor_detalles'),
 )
 
 urlpatterns += patterns('',
@@ -19,5 +21,5 @@ urlpatterns += patterns('',
         TemplateView.as_view(template_name="articulo/articulo_agregar_exito.html"),
         name='agregar_exito'),
     url(r'^registrar_autor/exito/$',
-        TemplateView.as_view(template_name="articulo/articulo_agregar_autor_exito.html"))
+        TemplateView.as_view(template_name="articulo/autor_agregar_exito.html"))
 )
