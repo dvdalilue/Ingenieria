@@ -1,16 +1,11 @@
 from django.db   import models
 from clei.models import Topico
+#from miembro_cp.models import Calificacion
 from persona.models import Persona
 
 class Autor(Persona):
     def __str__(self):
       return str(self.nombre) + " " + str(self.apellido) + ", " + str(self.cedula)
-
-class Palabra_Clave_Articulo(models.Model):
-    palabra  = models.CharField(max_length = 25)
-
-    def __str__(self):
-        return self.palabra
 
 class Articulo(models.Model):
     autor            = models.ForeignKey(Autor)
@@ -22,6 +17,7 @@ class Articulo(models.Model):
     puntaje_promedio = models.FloatField(default =0.0)
     topicos          = models.ManyToManyField(Topico)
     palabras_clave   = models.CharField(max_length=100)
+#    calificacion     = models.ForeignKey(Calificacion)
 
     def __str__(self):
         return self.titulo
