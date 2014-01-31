@@ -3,10 +3,10 @@ from datetime       import datetime
 from persona.models import Persona
         
 class Invitado(models.Model):
-    infoinvitado = models.ForeignKey(Persona)
+    persona = models.ForeignKey(Persona)
   
     def __unicode__(self):
-            return self.infoinvitado
+            return self.persona
         
 class Curriculum(models.Model):
     invitado = models.ForeignKey(Invitado , related_name='invitado_curriculum')

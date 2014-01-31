@@ -11,6 +11,7 @@ from persona.forms    import PersonaForm
 
 def asistente_inscritos(request):
     inscritos_list = Inscrito.objects.all()
+
     return render_to_response('lists/list_simple.html',
                               {'objeto_lista': inscritos_list,
                                'titulo'      : 'Inscritos:'                 ,

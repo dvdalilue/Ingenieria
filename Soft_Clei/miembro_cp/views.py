@@ -8,6 +8,7 @@ from django.views.generic.detail import DetailView
 from miembro_cp.models import Miembro_CP
 from miembro_cp.forms  import Miembro_CPForm, CalificacionForm
 from persona.forms     import PersonaForm
+from persona.models    import Persona
  
 def miembro_cp_index(request):
     miembros_cp = Miembro_CP.objects.all()
@@ -33,35 +34,43 @@ def miembro_cp_agregar(request):
             new_miembro.persona_id = new_persona.pk
             new_miembro.save()
             miembro_form.save_m2m()
-            return HttpResponseRedirect('exito')
+            return HttpResponseRedirect('/miembro_cp/exito')
     else:
         miembro_form = Miembro_CPForm()
         persona_form = PersonaForm()
 
-    return render(request, 'miembro_cp/miembro_cp_agregar.html', {
+    return render(request, 'forms/form_multiple.html', {
+        'titulo': 'Agregar Miembro CP:',
         'form1' : persona_form,
         'form2' : miembro_form,
+        'text'  : 'Creacion de un Miembro CP',
+        'button': 'Agregar',
     })
 
 def miembro_cp_detalles(request, pk):
     try:
-        miembro = Miembro_CP.objects.get(pk=pk)
+        aux = Miembro_CP.objects.get(pk=pk)
+        miembro = Persona.objects.get(pk=aux.persona.pk)
     except Miembro_CP.DoesNotExist:
         raise Http404
 
     return render_to_response('miembro_cp/miembro_cp_detalles.html',
-                              {'objeto': miembro}
-    )
+                              {'objeto' : aux,
+                               'miembro': miembro,
+    })
 
 def miembro_cp_calificar(request):
     if request.POST:
         calificar_form = CalificacionForm(request.POST)
         if calificar_form.is_valid():
             calificar_form.save()
-            return HttpResponseRedirect('exito')
+            return HttpResponseRedirect('/miembro/exito')
     else:
         calificar_form = CalificacionForm()
 
-    return render(request, 'miembro_cp/miembro_cp_calificar.html', {
+    return render(request, 'forms/form_simple.html', {
+        'titulo': 'Calificar Articulo:',
         'form': calificar_form,
+        'text'  : 'Calificacion de un Articulo',
+        'button': 'Calificar',
     })

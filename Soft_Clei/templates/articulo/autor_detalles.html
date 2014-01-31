@@ -1,11 +1,13 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h3>{{ objeto.nombre }}</h3>
+
+<h3>Datos del Autor</h3>
 <ul>
-  <li>Nombre: {{ objeto.nombre }}</li>
-  <li>Apellido: {{ objeto.apellido }}</li>
-  <li>Cedula: {{ objeto.cedula }}</li>
+  <li>Nombre: <i>{{ objeto.nombre  }} {{ objeto.apellido }}</i></li>
+  <li>Pais de procedencia: <i>{{ objeto.pais }}</i></li>
+  <li>Institucion: <i>{{ objeto.institucion_afiliada }}</i></li>
+  <li>Correo electronico: <i>{{ objeto.email }}</i></li>
 </ul>
 
 <form>
@@ -16,6 +18,6 @@
 {% block sidebar %}
 <li>
   <p>Datos del Autor</p>
-  <p><b>{{ objeto.nombre }}</b></p>
+  <p><b>{{ objeto.nombre  }} {{ objeto.apellido }}</b></p>
 </li>
 {% endblock %}

@@ -11,6 +11,9 @@
   <body>
     <div class="header">
       <div class="navbar-inner">
+				<div class="time">
+					<a href="/time"></a>
+				</div>
         <div class="navbar">
     	  <div class="nav">
       	    <a href="/">
@@ -28,81 +31,7 @@
               </li>
             </ul>
           </div>
-          <div class="nav">
-            <ul>
-              <li><a href="#">Participante</a>
-                <ul>
-                  <li>
-                    <a href="/persona#">Listar Participantes</a>
-                  </li>
-                  <li><a href="#">Asistentes</a>
-                    <ul>
-                      <li>
-                        <a href="/asistente/inscribir">Inscribir Persona</a>
-                      </li>
-                      <li>
-                        <a href="/asistente/inscritos">Listar Inscritos</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Invitados</a>
-                    <ul>
-                      <li>
-                        <a href="/invitado/invitar">Invitar Persona</a>
-                      </li>
-                      <li>
-                        <a href="/invitado">Listar Invitados</a>
-                      </li>
-                    </ul>
-                  </li>	
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="nav">
-            <ul>
-              <li><a href="#">Evento</a>
-                <ul>
-                  <li>
-                    <a href="/evento">Listar Eventos</a>
-                  </li>
-                  <li>
-                    <a href="#">Crear Evento</a>
-                    <ul>
-                      <li>
-                        <a href="/evento/sesion_crear">Nueva
-                        Sesion</a>
-                      </li>
-                      <li>
-                        <a href="/evento/charla_crear">Nueva Charla
-                        Invitada</a>
-                      </li>
-                      <li>
-                        <a href="/evento/taller_crear">Nuevo Taller</a>
-                      </li>
-                      <li>
-                        <a href="/evento/lugar_asignar">Asignar Lugar</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="/evento">Lugar</a>
-                  <ul>
-                      <li>
-                        <a href="/evento/lugar_listar">Listar Lugar
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/evento/lugar_crear">Nuevo Lugar
-                        </a>
-                      </li>
-                  </ul>
-                 </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="nav">
+					<div class="nav">
             <ul>
               <li><a href="#">Comite de Programa</a>
                 <ul>
@@ -118,24 +47,123 @@
           </div>
           <div class="nav">
             <ul>
+              <li><a href="#">Participante</a>
+                <ul>
+                  <li>
+                    <a href="/persona#">Listar Participantes</a>
+                  </li>
+                  <li><a href="#">Asistentes</a>
+                    <ul>
+											<li>
+                        <a href="/asistente/inscritos">Listar Inscritos</a>
+                      </li>
+                      <li>
+                        <a href="/asistente/inscribir">Inscribir Persona</a>
+                      </li>
+                    </ul>
+                  </li>
+									<li>
+                    <a href="#">Ponente</a>
+										<ul>
+											<li>
+                      	<a href="/evento/ponente">Listar Ponente</a>
+                      </li>
+                      <li>
+                      	<a href="/evento/ponente/agregar">Agregar Ponente</a>
+                      </li>
+										</ul>
+                  </li>
+                  <li><a href="#">Invitados</a>
+                    <ul>
+											<li>
+                        <a href="/invitado">Listar Invitados</a>
+                      </li>
+                      <li>
+                        <a href="/invitado/invitar">Invitar Persona</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav">
+            <ul>
+              <li><a href="#">Evento</a>
+                <ul>
+                  <li>
+                    <a href="/evento">Listar Eventos</a>
+                  </li>
+									<li>
+                    <a href="#">Ponencia</a>
+										<ul>
+											<li>
+                      	<a href="/evento/ponencia"> Listar Ponencias</a>
+                      </li>
+                      <li>
+                      	<a href="/evento/ponencia/agregar">Agregar Ponencia</a>
+                      </li>
+										</ul>
+                  </li>
+                  <li>
+                    <a href="#">Crear Evento</a>
+                    <ul>
+                      <li>
+                        <a href="/evento/sesion_crear">Nueva
+													Sesion
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/evento/charla_crear">Nueva Charla
+													Invitada</a>
+                      </li>
+                      <li>
+                        <a href="/evento/taller_crear">Nuevo Taller</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Lugar</a>
+										<ul>
+                      <li>
+                        <a href="/evento/lugar_listar">Listar Lugares
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/evento/lugar_crear">Nuevo Lugar
+                        </a>
+                      </li>
+										</ul>
+									</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav">
+            <ul>
               <li><a href="#">Articulo</a>
                 <ul>
                   <li>
-                    <a href="/articulo">Ver Articulos</a>
+                    <a href="/articulo">Listar Articulos</a>
                   </li>
                   <li>
                     <a href="/articulo/agregar">Agregar Articulo</a>
                   </li>
-                  <li>
-                    <a href="/miembro_cp/calificar">Calificar 
-                      Articulo</a>
-                  </li>
-                  <li>
-                    <a href="/articulo/autor">Ver Autores</a>
-                  </li>
-                  <li>
-                    <a href="/articulo/autor/registrar">Registrar Autor</a>
-                  </li>
+									<li>
+										<a href="/miembro_cp/calificar">Calificar 
+											Articulo</a>
+									</li>
+									<li>
+										<a href="#">Autor</a>
+										<ul>
+											<li>
+												<a href="/articulo/autor">Listar Autores</a>
+											</li>
+											<li>
+												<a href="/articulo/autor/registrar">Registrar Autor</a>
+											</li>
+										</ul>
+									</li>
                 </ul>
               </li>
             </ul>

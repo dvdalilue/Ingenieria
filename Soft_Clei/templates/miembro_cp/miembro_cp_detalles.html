@@ -3,11 +3,17 @@
 {% block content %}
 <h3>{{ objeto }}</h3>
 <ul>
+	<li>Nombre: {{ miembro.nombre }} {{ miembro.apellido }}</li>
+	<li>Cedula: {{ miembro.cedula }}</li>
+	<li>Institucion: {{ miembro.institucion_afiliada }}</li>
+	<li>Email: {{ miembro.email }}</li>
+	<li>Pais: {{ miembro.pais }}</li>
   <li>Cargo: {{ objeto.cargo }}</li>
 </ul>
 <form>
-  <input type="button" VALUE="Atras" onClick="history.go(-1);return
-        true;">
+
+<form>
+	<a class="boton" href="javascript:history.back()">Atras</a>
 </form>
 {% endblock %}
 

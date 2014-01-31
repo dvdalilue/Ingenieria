@@ -10,13 +10,7 @@ urlpatterns = patterns('miembro_cp.views',
         'miembro_cp_detalles'),
     url(r'^calificar/$',
         'miembro_cp_calificar'),
-)
-
-urlpatterns += patterns('',
-    url(r'^agregar/exito/$',
-        TemplateView.as_view(template_name="miembro_cp/miembro_cp_agregar_exito.html"),
-        name='agregar_exito'),
-    url(r'^calificar/exito/$',
-        TemplateView.as_view(template_name="miembro_cp/miembro_cp_calificar_exito.html"),
-        name='calificar_exito'),
+    url(r'^exito/$',
+        TemplateView.as_view(template_name="miembro_cp/miembro_cp_exito.html"),
+        name='exito'),
 )

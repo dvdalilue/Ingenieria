@@ -1,6 +1,6 @@
 from django		         import forms
 from evento.models               import Evento, Sesion_Ponencia, Ponencia, Palabra_Clave_Ponencia
-from evento.models               import Charla, Palabra_Clave_Charla, Taller, Lugar
+from evento.models               import Charla, Palabra_Clave_Charla, Taller, Lugar, Ponente
 from clei.models                 import Topico
 from clei.widget	         import SelectTimeWidget
 from django.forms.extras.widgets import SelectDateWidget
@@ -30,6 +30,13 @@ class PonenciaForm(forms.ModelForm):
                 self.fields["topicos"].widget = forms.widgets.CheckboxSelectMultiple()
                 self.fields["topicos"].help_text = ""
 		self.fields["topicos"].queryset = Topico.objects.all()
+
+class PonenteForm(forms.ModelForm):
+        class Meta:
+            model = Ponente
+        
+        def __init__(self, *args, **kwargs):
+                super(PonenteForm, self).__init__(*args, **kwargs)
 
 class Palabra_Clave_PonenciaForm(forms.ModelForm):
         class Meta:

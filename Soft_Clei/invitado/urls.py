@@ -3,13 +3,13 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = patterns('invitado.views',
-    url(r'^$','index'),                   
-    url(r'^invitar/$', 'crear_invitado'),
-    url(r'^detalles/(?P<pk>[\w]+)/$', 'ver_invitado'),
-)
-
-urlpatterns += patterns('',
-    url(r'^crearinvitado/exito/$',
-        TemplateView.as_view(template_name="invitado/crearinvitado_exito.html"), 
+    url(r'^$',
+        'invitado_index'),                   
+    url(r'^invitar/$',
+        'invitado_invitar'),
+    url(r'^detalles/(?P<pk>[\w]+)/$',
+        'invitado_detalles'),
+    url(r'^exito/$',
+        TemplateView.as_view(template_name="invitado/invitado_exito.html"), 
         name='exito'),
-    )
+)

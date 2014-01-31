@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ objeto }}</h3>
+<ul>
+  <li>Nombre: {{ objeto.nombre }}</li>
+  <li>Apellido: {{ objeto.apellido }}</li>
+  <li>Cedula: {{ objeto.cedula }} </li>
+  <li>Institucion: {{ objeto.institucion_afiliada }}</li>
+  <li>Email: {{ objeto.email }}</li>
+  <li>Pais: {{ objeto.pais }}</li>
+  <!--<li>Curriculum: {{ objeto.curriculum }}</li> -->
+</ul>
+
+<form>
+	<a class="boton" href="javascript:history.back()">Atras</a>
+	<a class="boton" href="/invitado/invitar/">Invitar Persona</a>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos de Invitado</p>
+</li>
+{% endblock %}

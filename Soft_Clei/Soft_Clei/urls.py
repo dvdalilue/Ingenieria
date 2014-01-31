@@ -15,10 +15,9 @@ urlpatterns = patterns('',
     url(r'^miembro_cp/'  , include('miembro_cp.urls')                           ),
     url(r'^asistente/'   , include('asistente.urls')                            ),
     url(r'^persona/'     , include('persona.urls')                              ),
-    url(r'^invitado/'    , include('invitado.urls')                             ),                                                                   
-                       
+    url(r'^invitado/'    , include('invitado.urls')                             ),                                                                               
     url(r'^admin/'       , include(admin.site.urls)                             ),
-
+    url(r'^time/$'       , TemplateView.as_view(template_name="Clei_time.html") ),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )

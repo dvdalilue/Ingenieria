@@ -21,7 +21,7 @@
 {% if inscrito_lista %}
 <ul>
   {% for i in inscrito_lista %}
-  <li><a href="#">{{ i }}</a></li>
+  <li><a href="/asistente/inscritos/detalles/{{ i.id }}">{{ i }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
@@ -31,10 +31,10 @@
 {% endif %}
 
 <h3>Invitados:</h3>
-{% if invitados_lista %}
+{% if invitado_lista %}
 <ul>
-  {% for i in invitados_lista %}
-  <li><a href="#">{{ i }}</a></li>
+  {% for d in invitado_lista %}
+  <li><a href="/invitado/detalles/{{ d.id }}">{{ d }}</a></li>
   {% endfor %}
 </ul>
 {% else %}

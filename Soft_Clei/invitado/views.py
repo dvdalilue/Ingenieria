@@ -12,25 +12,34 @@ from django.core.urlresolvers import reverse
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
 
-
-def index(request):
+def invitado_index(request):
     invitados = Invitado.objects.all()
-    return render_to_response('invitado/index.html', {'invitado': invitados})
 
-def crear_invitado(request):
+    return render_to_response('lists/list_simple.html',
+                              {'objeto_lista': invitados,
+                               'titulo'      : 'Invitados:'                 ,
+                               'modulo'      : 'invitado/detalles',
+                               'm_error'     : 'No existen invitados.'      ,
+                               'text'        : 'Invitados al CLEI'          ,
+                               'ref'         : '/invitado/invitar'       ,
+                               'hpv'         : 'Invitar Persona'          ,
+                               'b'           : 'Atras'                      ,
+    })
+
+def invitado_invitar(request):
     if request.POST:
         curriculum_form = CurriculumForm(request.POST)
         invitado_form = InvitadoForm(request.POST)
         persona_form = PersonaForm(request.POST)
         if curriculum_form.is_valid() and invitado_form.is_valid() and persona_form.is_valid():
-            new_curriculum = curriculum_form.save(commit=False)
-            new_invitado = invitado_form.save(commit = False)
             new_persona = persona_form.save()
-            new_invitado.info_id = new_persona.pk
+            new_invitado = invitado_form.save(commit = False)
+            new_curriculum = curriculum_form.save(commit=False)
+            new_invitado.persona_id = new_persona.pk
             new_invitado.save() 
-            new_curriculum.info_id = new_invitado.pk
+            new_curriculum.invitado_id = new_invitado.pk
             new_curriculum.save()
-            return HttpResponseRedirect('exito')
+            return HttpResponseRedirect('/invitado/exito')
     else:
         curriculum_form = CurriculumForm()
         invitado_form = InvitadoForm()
@@ -38,19 +47,22 @@ def crear_invitado(request):
         
     return render(request, 'forms/form_multiple.html', {
         'titulo': 'Invitar Persona:',
-        'form1' : curriculum_form,
-        'form2' : persona_form,
-        'form3' : invitado_form,
+        'form1' : persona_form,
+        'form2' : invitado_form,
+        'form3' : curriculum_form,
         'text'  : 'Invitar persona al CLEI',
         'button': 'Invitar',
     })
     
-def ver_invitado(request, pk):
+def invitado_detalles(request, pk):
     try:
-        invitado = Invitado.objects.get(pk=pk)
+        aux = Invitado.objects.get(pk=pk)
+        invitado = Persona.objects.get(pk=aux.persona.pk)
     except Invitado.DoesNotExist:
         raise Http404
+    except Persona.DoesNotExist:
+        raise Http404
 
-    return render_to_response('invitado/ver_invitado.html',
-                              {'objeto': invitado}
-    )
+    return render_to_response('invitado/invitado_detalles.html',
+                              {'objeto': invitado
+    })

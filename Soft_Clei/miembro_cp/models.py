@@ -23,7 +23,7 @@ class Miembro_CP(models.Model):
                                   default    = REGULAR)
 
     def __str__(self):
-        return str(self.persona) +", "+ str(self.cargo)
+        return str(self.persona)
 
 class Calificacion(models.Model):
     CALIFICACIONES__CHOICES = ((1,1),

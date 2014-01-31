@@ -3,8 +3,10 @@
 {% block content %}
 <h3>{{ objeto }}</h3>
 <ul>
-  <li>Titulo: {{ objeto.titulo }}</li>
+  <li>Titulo: <i>{{ objeto.titulo }}</i></li>
+  <li>Autor: <i>{{ objeto.autor }}</i></li>
   <li>Resumen: {{ objeto.resumen }}</li>
+  <li>Palabras Clave: {{ objeto.palabras_clave }}</li>
 </ul>
 
 <form>
