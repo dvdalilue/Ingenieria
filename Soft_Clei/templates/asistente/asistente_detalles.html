@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ objeto }}</h3>
+<ul>
+	<li>Fecha inscripcion: {{ objeto.created }}</li>
+  <li>Asistencia:
+		<ul>
+			{% for a in objeto.asistencia.all %}
+			<li>{{ a }}</li>
+			{% endfor %}
+		</ul>
+	</li>
+  <li>Descuento:
+		<ul>
+			{% for a in objeto.descuento.all %}
+			<li>{{ a }}</li>
+			{% endfor %}
+		</ul>
+</ul>
+
+<form>
+	<a class="boton" href="javascript:history.back()">Atras</a>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del Asistente</p>
+  <p><b>{{ objeto }}</b></p>
+</li>
+{% endblock %}

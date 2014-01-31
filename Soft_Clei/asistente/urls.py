@@ -6,10 +6,9 @@ urlpatterns = patterns('asistente.views',
         'asistente_inscritos'),
     url(r'^inscribir/$',
         'asistente_inscribir'),
-)
-
-urlpatterns += patterns('',
-    url(r'^inscribir/exito/$',
+    url(r'^inscritos/detalles/(?P<pk>[\w]+)/$',
+        'asistente_detalle'),
+    url(r'^exito/$',
         TemplateView.as_view(template_name="asistente/inscribir_exito.html"), 
         name='exito'),
 )

@@ -15,7 +15,7 @@ def miembro_cp_index(request):
     return render_to_response('lists/list_simple.html',
                               {'objeto_lista': miembros_cp                   ,
                                'titulo'      : 'Miembros del Comite P.:'     ,
-                               'modulo'      : 'miembro_cp/detalle'          ,
+                               'modulo'      : 'miembro_cp/detalles'         ,
                                'm_error'     : 'No existen miembros cp.'     ,
                                'text'        : 'Comite de programas del CLEI',
                                'ref'         : 'agregar/'                    ,
@@ -32,6 +32,7 @@ def miembro_cp_agregar(request):
             new_persona = persona_form.save()
             new_miembro.persona_id = new_persona.pk
             new_miembro.save()
+            miembro_form.save_m2m()
             return HttpResponseRedirect('exito')
     else:
         miembro_form = Miembro_CPForm()

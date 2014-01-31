@@ -71,6 +71,7 @@ def evento_taller_crear(request):
             new_evento = evento_form.save()
             new_taller.evento_id = new_evento.pk
             new_taller.save()
+            taller_form.save_m2m()
             return HttpResponseRedirect('exito')
     else:
         taller_form = TallerForm()

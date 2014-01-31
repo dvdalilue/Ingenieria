@@ -14,8 +14,9 @@ class AsistenteForm(forms.ModelForm):
         model   = Asistente
         exclude = ['info']
 
+class InscritoForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        super(AsistenteForm, self).__init__(*args, **kwargs)
+        super(InscritoForm, self).__init__(*args, **kwargs)
         self.fields["asistencia"].widget = forms.widgets.CheckboxSelectMultiple()
         self.fields["asistencia"].help_text = ""
         self.fields["asistencia"].queryset = Asistencia.objects.all()
@@ -23,7 +24,6 @@ class AsistenteForm(forms.ModelForm):
         self.fields["descuento"].help_text = ""
         self.fields["descuento"].queryset = Descuento.objects.all()
 
-class InscritoForm(forms.ModelForm):
     class Meta:
         model   = Inscrito
         exclude = ['inscrito']

@@ -207,13 +207,13 @@ body hr {
     padding: 0.3em 0;
     margin-bottom: 0.3em;
 	margin-top: 0px;
-    font-size: 160%;
+    font-size: 150%;
     color: #333;
     border-bottom: 1px solid #e5e5e5;
 }
 
 .container-body li {
-	margin-bottom: 35px;
+	margin-bottom: 15px;
 }
 
 .container-body li p {
@@ -224,6 +224,7 @@ body hr {
 
 .container-body form {
 	display: block;
+	margin-top: 30px;
 }
 
 .container-body form p {
@@ -335,6 +336,10 @@ body hr {
 .container-body form ul {
 	list-style:none;
 	margin-top:45px;
+}
+
+.container-body ul ul {
+	margin-top: 15px;
 }
 
 .container-body form .errorlist {

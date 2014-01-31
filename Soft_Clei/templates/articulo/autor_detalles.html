@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>{{ objeto.nombre }}</h3>
+<ul>
+  <li>Nombre: {{ objeto.nombre }}</li>
+  <li>Apellido: {{ objeto.apellido }}</li>
+  <li>Cedula: {{ objeto.cedula }}</li>
+</ul>
+
+<form>
+  <a class="boton" href="javascript:history.back()">Atras</a>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<li>
+  <p>Datos del Autor</p>
+  <p><b>{{ objeto.nombre }}</b></p>
+</li>
+{% endblock %}
