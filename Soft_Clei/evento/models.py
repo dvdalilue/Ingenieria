@@ -27,17 +27,14 @@ class Sesion_Ponencia(models.Model):
 
     def __unicode__(self):
         return self.evento
-
-class Ponente(models.Model):
-    asistente = models.ForeignKey(Asistente)
-    
-    def __str__(self):
-        return self.asistente
     
 class Ponencia(models.Model):
     topicos = models.ManyToManyField(Topico)
     sesion  = models.ForeignKey(Sesion_Ponencia, related_name='sesion_ponencia')
-    ponente = models.ForeignKey(Ponente)
+    ponente = models.CharField(max_length = 20)
+
+    def __unicode__(self):
+        return str('Ponencia') + str(self.id)
     
 class Palabra_Clave_Ponencia(models.Model):
     palabra  = models.CharField(max_length = 10, null=True, blank=True)
@@ -51,7 +48,7 @@ class Charla(models.Model):
     topicos = models.ManyToManyField(Topico)
     evento  = models.ForeignKey(Evento, related_name='evento_charla')
 
-def __unicode__(self):
+    def __unicode__(self):
         return self.evento
 
 class Palabra_Clave_Charla(models.Model):

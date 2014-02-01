@@ -2,6 +2,7 @@
 *.autosave
 .directory
 *.py~
+*.swp
 
 # C extensions
 *.so

@@ -6,7 +6,7 @@
 {% if sesion_lista %}
 <ul>
   {% for s in sesion_lista %}
-  <li><a href="/evento/detalles/{{ s.id }}/">{{ s }}</a></li>
+  <li><a href="/evento/detalles/{{ s.evento.id }}/">{{ s }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
@@ -22,7 +22,7 @@
 {% if charla_lista %}
 <ul>
   {% for c in charla_lista %}
-  <li><a href="/evento/detalles/{{ c.id }}/">{{ c }}</a></li>
+  <li><a href="/evento/detalles/{{ c.evento.id }}/">{{ c }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
@@ -38,7 +38,7 @@
 {% if taller_lista %}
 <ul>
   {% for t in taller_lista %}
-  <li><a href="/evento/detalles/{{ t.id }}/">{{ t }}</a></li>
+  <li><a href="/evento/detalles/{{ t.evento.id }}/">{{ t }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
