@@ -82,7 +82,16 @@ def agregar_ponencia_sesion(request):
 
 def listar_ponencia_sesion(request):
     ponencias = Ponencia.objects.all()
-    return render_to_response('evento/listar_ponencia.html', {'objeto': ponencias})
+    return render_to_response('evento/evento_list.html',
+                              {'objeto'   : ponencia, 
+                               'titulo'   : 'Ponencias:'               ,
+                               'modulo'   : 'evento/lugar/detalles'  ,
+                               'm_error'  : 'No existen lugares.'    ,
+                               'text'     : 'Lugares disponibles en el CLEI',
+                               'ref'      : '/evento/lugar_crear'    ,
+                               'hpv'      : 'Agregar Lugar'          ,
+                               'b'        : 'Atras'                  ,
+    })
 
 def agregar_ponente_ponencia(request):
     if request.POST:
